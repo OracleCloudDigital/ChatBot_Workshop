@@ -10,7 +10,7 @@
 
 * Lab 100 : [Chatbot Overview](Lab100%20-%20Chatbot%20Overview.md)
 * Lab 200 : [Training Data를 사용해 Chatbot을 Train](Lab200%20-%20Training%20Data를%20사용해%20Chatbot을%20Train.md)
-* Lab 300 : [API 구성 PART 1. MCS에서 Custom Component 구성 및 연결하기](Lab300%20-%20API%20구성%20PART%201.%20MCS에서%20Custom%20Component%20구성%20및%20연결하기.md)
+* Lab 300 : [API 구성 PART 1. MCS에서 Custom Component 구성 및 연결하기](https://github.com/OracleCloudKr/ChatBot_Workshop/blob/master/Lab300%20-%20API%20%EA%B5%AC%EC%84%B1%20PART%201.%20MCS%EC%97%90%EC%84%9C%20Custom%20Component%20%EA%B5%AC%EC%84%B1%20%EB%B0%8F%20%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0.md)
 * Lab 301 : [API 구성 PART 2. Local에서 Custom Component 구성 및 연결하기](Lab301%20-%20Custom%20Component%20구현,%20수정%20및%20연결.md)
 * Lab 400 : [채널 연결 PART 1. Facebook 연결 및 메세지 포멧 활용하기](Lab400%20-%20카카오톡을%20통해서%20Chatbot%20테스트하기.md)
 * Lab 401 : [채널 연결 PART 2. 카카오톡을 통해서 Chatbot 테스트하기](Lab400%20-%20카카오톡을%20통해서%20Chatbot%20테스트하기.md)
