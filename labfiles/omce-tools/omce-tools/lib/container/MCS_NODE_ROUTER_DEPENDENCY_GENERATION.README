@@ -1,0 +1,13 @@
+
+!!!The npm-shrinkwrap.json TAKES PRECEDENCE  OVER the package.json when populating node_modules. !!!! 
+
+Therefore the npm-shrinkwrap.json MUST BE REGENERATED every time you update the package.json (either added a new dependency or 
+modified the existing dependencies). 
+
+To add or update a dependency in a shrinkwrapped package:
+
+- Add or update dependencies in package.json and run "npm install" in the package root to install the current versions of all dependencies.
+- Validate that the package works as expected with the new dependencies.
+- Run "npm shrinkwrap", and commit the new npm-shrinkwrap.json to git.
+
+See https://www.npmjs.org/doc/cli/npm-shrinkwrap.html if you need more information.

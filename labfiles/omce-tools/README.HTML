@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Readme</title>
+  <style>
+    body {
+      margin-left: 50px;
+      font-family: "Helvetica Neue", "Segoe UI", "Roboto", sans-serif-regular, sans-serif;
+    }
+    nav {
+      position: fixed;
+      left: 50px;
+      top: 50px;
+      width: 200px;
+    }
+    nav ul {
+      list-style-type: none;
+      padding: 0px;
+    }
+    a {
+      text-decoration: none;
+    }
+    main, header {
+      width: 80%;
+      max-width: 600px;
+      margin-left: 220px;
+    }
+    h1, h2 {
+      font-weight: 300;
+      background-color: #E4F0FA;
+      color: #145C93;
+      padding: 5px 0px 5px 5px;
+      margin-left: -20px;
+    }
+    h3 {
+      color: #145C93;
+      font-weight: 400;
+    }
+    pre {
+      font-family: courier, monospace;
+      white-space: pre-wrap;
+      background-color: #eeeeee;
+      padding: 3px;
+    }
+    code {
+      font-family: courier, monospace;
+      font-size: 85%;
+    }
+    .click {
+      font-weight: bold;
+    }
+    .fpath {
+      font-family: courier, monospace;
+    }
+    .cmd {
+      font-family: courier, monospace;
+      padding-left: 2px;
+      padding-right: 2px;
+    }
+    .cmd-option {
+      font-family: courier, monospace;
+    }
+    .display {
+      font-family: courier, monospace;
+    }
+    .pname { /* property name */
+      font-family: courier, monospace;
+    }
+    .varname {
+      font-style: italic;
+    }
+    .uilabel {
+      font-style: italic;
+    }
+    .uicontrol {
+      font-weight: bold;
+    }
+    header {
+      left-margin: -200px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>README</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#tools">What are the tools?</a></li>
+      <li><a href="#prereqs">Prerequisites</a></li>
+      <li><a href="#setting-up">Setting up the tools</a></li>
+      <li><a href="#testing-api">Testing an API Implementation</a></li>
+      <li><a href="#offline-container">Offline Container Options</a></li>
+      <li><a href="#packaging">Packaging and Uploading Your Implementation</a></li>
+      <li><a href="#changelog">Change Log</a></li>
+    </ul>
+  </nav>
+  <main>
+  
+    <section id="intro">
+    <h2>Custom Code Test Tools</h2>
+    <p>Oracle Mobile Cloud Enterprise, Version 18.1.1.0</p>
+    <p>2018-01-10</p>
+    <p>Oracle Mobile Cloud, Enterprise (OMCe) provides a set of custom code test tools to help you:</p>
+    <ul>
+      <li>Test and debug your custom API implementations on your local machine.</li>
+      <li>Package and upload those API implementations to OMCe from the command line.</li>
+    </ul>
+    
+    </section>
+    
+    <section id="tools">
+    <h2>What are the tools?</h2>
+    <p>The set of tools consists of:</p>
+    <ul>
+      <li>An npm module (omce-tools) that includes the command-line tools for starting a local custom code container, running tests, and deploying an API implementation to OMCe.</li>
+      <li>An API (OracleMobileAPI) to proxy OMCe API calls from the node container running locally on your machine to the container running within OMCe. You need to upload this API to OMCe and associate it with the backend that contains the API you want to work with.</li>
+    </ul>
+    </section>
+    
+    <section id="prereqs">
+    <h2>Prerequisites</h2>
+    <ul>
+      <li>A local installation of Node.js (version 6.10 or compatible)</li>
+      <li>The Developer role in an instance of OMCe</li>
+    </ul>
+    </section>
+    
+    <section id="setting-up">
+      <h2>Setting up the tools</h2>
+      <h3>Installing omce-tools</h3>
+      <ol>
+        <li>On your machine, open a terminal window, and change directories to the <span class="fpath">omce-tools</span> directory.</li>
+        <li>Run <span class="cmd">npm install -g</span>.</li>
+        <li>To ensure the tools were installed correctly, run <span class="cmd">omce-test --version</span>. It should return <span class="display">18.1.1</span>.</li>
+      </ol>
+      <h3>Adding OracleMobileAPI to OMCe</h3>
+      <ol>
+        <li>From the Mobile Apps tab in OMCe, click <span class="click">APIs</span>, then click <span class="click">New API</span>, and select <span class="click">API</span>.</li>
+        <li>Click <span class="click">Upload a RAML document</span>, navigate to the <span class="fpath">OracleMobileAPI.raml</span> file on your system, and click <span class="click">Open</span>.</li>
+        <li>Type a short description for the API and click <span class="click">Create</span>.</li>
+        <li>Click the <span class="click">Security</span> tab and turn <span class="uilabel">Login Required</span> to the <span class="uicontroll">OFF</span> position.</li>
+        <li>Click <span class="click">Save</span>.</li>
+        <li>Click <span class="click">Implementations</span>, upload <span class="fpath">OracleMobileAPIImpl.zip</span> from your system, and click <span class="click">Save</span>.</li>
+      </ol>
+    </section>
+    
+    <section id="testing-api">
+    <h2>Testing an API Implementation</h2>
+    <h3>Setting up Your API for Testing</h3>
+    <ol>
+      <li>If you haven't already done so, create your API in OMCe and add endpoints and sample request/response data.</li>
+      <li>In OMCe, associate the API with a backend. (Click <span class="click">Backends</span>, select the backend you want to use and click <span class="click">Open</span>, click the backend's <span class="click">APIs</span> tab, and click <span class="click">Select APIs</span>.)</li>
+      <li>Associate OracleMobileAPI with the same backend.</li>
+      <li>Download the JavaScript scaffold for the API that you want to test. (Open the API, click its <span class="click">Implementation</span> tab, and click <span class="click">JavaScript Scaffold</span>.)</li>
+      <li>Unzip the scaffold and check its contents. The directory should contain the following  files:
+      <ul>
+        <li><span class="fpath">package.json</span> - the module manifest</li>
+        <li><span class="fpath">&lt;<span class="varname">api name</span>&gt;.js</span> - your starter implementation</li>
+        <li><span class="fpath">&lt;<span class="varname">api name</span>&gt;.raml</span> - the API definition in RAML format</li>
+        <li><span class="fpath">swagger.json</span> - the API definition in Swagger format</li>
+        <li><span class="fpath">toolsConfig.json</span> -  contains metadata needed by the tools, such as backend environment and authorization info, the API, and OMCe endpoint and test definitions</li>
+        <li><span class="fpath">samples.txt</span></li>
+        <li><span class="fpath">ReadMe.md</span> - this file</li>
+      </ul>
+      </li>
+    </ol>
+    <h3>Setting Up the API Implementation for Testing</h3>
+    <ol>
+      <li>In a terminal window, change directories to the directory containing your scaffold.</li>
+      <li>Run <span class="fpath">npm install</span></li>
+      <li>Update the API implementation's <span class="fpath">toolsConfig.json</span> file to include your OMCe instance, backend and authorization info.
+      <ul>
+        <li><span class="pname">baseUrl</span> is the base URL of your OMCe instance. This value is required and may be found on the <span class="click">Mobile Apps -> Backend -> Settings</span> page in OMCe.</li>
+        <li><span class="pname">tokenEndpoint</span> is your tenant's IDCS OAuth token endpoint. This value is required and may be found on the <span class="click">Mobile Apps -> Instance Details</span> page in OMCe.</li>
+        <li><span class="pname">backend</span> properties are required to authorize API calls made by your API implementation to your OMCe instance via <span class="cmd">omce-ccc</span>. You can get the backend info from the backend's Settings page. (From the Mobile Apps tab in OMCe, click <span class="click">Backends</span>, select the backend that uses the API, click <span class="click">Open</span>, and click <span class="click">Settings</span>.). The following properties are required:<ul>
+          <li><span class="pname">backend.backendId</span></li>
+          <li><span class="pname">backend.authorization.anonymousKey</span></li>
+          <li><span class="pname">backend.authorization.clientId</span> (optional, required to use oauth security when submitting tests using <span class="cmd">omce-test</span>)</li>
+          <li><span class="pname">backend.authorization.clientSecret</span> (optional, required to use oauth security when submitting tests using <span class="cmd">omce-test</span>)</li>
+        </ul>
+        </li>
+        <li><span class="pname">tools</span> properties are required by commands such as <span class="cmd">omce-deploy</span>, that use the OMCe public tooling APIs. The IDCS clientId and clientSecret can be found on the Mobile Apps -> Instance Details page in OMCe. The following properties are required:
+        <ul>
+          <li><span class="pname">tools.authorization.clientId</span></li>
+          <li><span class="pname">tools.authorization.clientSecret</span></li>
+        </ul>
+        </li>
+      </ul>
+      </li>
+    </ol>
+    <p>By default, the tools assume <span class="fpath">toolsConfig.json</span> is co-located with or in the same directory as your API implementation. If you choose to move <span class="fpath">toolsConfig.json</span> to a different directory, you must specify the location of the API implementation in <span class="fpath">toolsConfig.json</span> using <span class="pname">moduleLocation</span>.</p>
+    <p>Other possible <span class="fpath">toolsConfig.json</span> properties, including the format of tests, are documented in the <span class="fpath">resource/configMetadata.json</span> file.</p>
+    
+    <h3>Starting the Local Container</h3>
+    <p>This command starts a node container running your API implementation (as identified by <span class="fpath">toolsConfig.json</span>). The container can be started with or without the --debug option. If you start the container with the --debug option, you will get a URL that you can use to open a debug session in Google Chrome.</p>
+    <pre><code>omce-ccc &lt;<span class="varname">path to toolsConfig.json</span>&gt; [--debug] [--verbose]</code></pre>
+    
+    <h3>Making API Calls to the Container</h3>
+    <p>Once the container is running, you may send requests to the container using <span class="cmd">omce-test</span> (see Running Tests on Your Implementation below), cURL, Postman, or other REST clients.</p>
+    <p>By default, the container runs on port 4000. (You can change this in the <span class="fpath">resource/configMetadata.json</span> file.)</p>
+    <p>With cURL, a simple command might look something like:</p>
+    <pre><code>$ curl -X GET http://localhost:4000/mobile/custom/&lt;api-name&gt;/&lt;api-version&gt;/&lt;resource-path&gt;</code></pre>
+    </section>
+    
+    <section id="offline-container">
+    <h2>Offline Container Options</h2>
+    <dl>
+      <dt>--debug</dt>
+      <dd>Provides a URL you can use to open a debug session in Google Chrome.</dd>
+      <dt>--verbose</dt>
+      <dd>If you have errors or warnings, will show examples of the missing property in addition to a description of the property.</dd>
+      <dt>--version</dt>
+      <dd>Get the version of any tool.</dd>
+    </dl>
+    <h3>Notes on the Offline Container</h3>
+    <p>There are some differences between the custom code container in OMCe and the offline container. The offline container:</p>
+    <ul>
+      <li>Has a less granular set of methods for logging. Calls to <span class="cmd">console.finest</span>, <span class="cmd">console.finer</span>, <span class="cmd">console.fine</span>, <span class="cmd">console.config</span>, and <span class="cmd">console.info</span> methods are treated as calls to <span class="cmd">console.log</span>. Calls to <span class="cmd">console.warning</span> are treated as calls to <span class="cmd">console.warn</span>. Calls to <span class="cmd">console.severe</span> are treated as calls to <span class="cmd">console.error</span>.</li>
+      <li>Does not do any automatic logging.</li>
+      <li>Does not catch unhandled errors. Instead, unhandled errors stop the container.</li>
+    </ul>
+    </section>
+    
+    <section id="running-tests">
+    <h2>Running Tests on Your Implementation</h2>
+    <p>Once the container is running, you can submit requests to the container using the testing tool. The tests are defined in the implementation's <span class="fpath">toolsConfig.json</span> and you can add or remove tests as needed. The initial set of tests is generated from sample data you entered while defining your resources & methods in OMCe. For example:</p>
+    <pre><code>"postPets":{
+    "method":"POST",
+    "resource":"/pets",
+    "payload":{
+        "name":"Oreo",
+        "species":"Cat",
+        "breed":"Domestic Short Hair",
+        "age":"14",
+        "vetId":"blueRidge"
+    }
+},
+"getPets":{
+    "method":"GET",
+    "resource":"/pets"
+},
+"getPetsId":{
+    "method":"GET",
+    "resource":"/pets/:id",
+    "uriParameters":{
+        "id":"&lt;PARAMETER_VALUE&gt;"
+    }
+}</code></pre>
+    <p>To execute a test, use one of the following commands:</p>
+    <pre><code>omce-test &lt;path to toolsConfig.json&gt; &lt;test name&gt; [--security anonymous] [--verbose]
+    
+omce-test &lt;path to toolsConfig.json&gt; &lt;test name&gt; --security basic [--username <mobile user>] [--password &lt;mobile user password&gt;] [--verbose]
+
+omce-test &lt;path to toolsConfig.json&gt; &lt;test name&gt; --security oauth [--username &lt;mobile user&gt;] [--password &lt;mobile user password&gt;] [--verbose]
+</code></pre>
+    <p>If you don't specify the username or password on the command-line when using the <span class="cmd-option">basic</span> or <span class="cmd-option">oauth</span> options, you will be prompted to enter the values when the command runs.</p>
+    <p>For example, the following command returns the status code and payload contained in the response:</p>
+    <pre><code>omce-test ../apis/1.0/toolsConfig.json postPets --security oauth</code></pre>
+    <p>You can continue executing tests as long as the container remains running.</p>
+    </section>
+    
+    <section id="packaging">
+    <h2>Packaging and Uploading Your Implementation</h2>
+    <p>Once you have completed your implementation or reached a stage where you are ready to test it in OMCe, you can use the deployment tool (<span class="cmd">omce-deploy</span>) to package the implementation in a zip file and upload it to OMCe.</p>
+    <p><span class="cmd">omce-deploy</span> can be issued in these forms:</p>
+    <pre><code>omce-deploy &lt;toolsConfig.json&gt; -u &lt;OMCe team member&gt; -p &lt;pass&gt; [--verbose]
+
+omce-deploy &lt;toolsConfig.json&gt; --username &lt;OMCe team member&gt; --password &lt;pass&gt; [--verbose]
+
+omce-deploy &lt;toolsConfig.json&gt; -u &lt;OMCe team member&gt; [--verbose]
+
+omce-deploy &lt;toolsConfig.json&gt; [--verbose]</code></pre>
+    <p>For example:</p>
+    <pre><code>omce-deploy ../testaccess/apis/pets3/1.0/toolsConfig.json</code></pre>
+    <p>If you don't specify the username and password on the command-line, you will be prompted to enter the values when the command runs.</p>
+    <p><b>Note</b>: The username and password required for <span class="cmd">omce-deploy</span> are for an OMCe team member. For API tests that you run using <span class="cmd">omce-test</span>, the user name and password correspond to a mobile user.</p>
+    </section>
+    
+    <section id="changelog">
+      <h2>Change Log</h2>
+      <dl>
+        <dt>18.1.1 (OMCe)</dt>
+        <dd>Updated command names from <span class="cmd">mcs-*</span> to <span class="cmd">omce-*</span> to allow tools for internal compute and external compute to be installed concurrently</dd>
+        <dt>17.4.5 (OMCe)</dt>
+        <dd>Updated OAuth logic for <span class="cmd">omce-deploy</span> to obtain an OAuth token direct from IDCS instead of via a backend.</dd>
+        <dd>Modified the structure of <span class="fpath">toolsConfig.json</span> to support both backend authorization and tools authorization properties. You may continue to use existing <span class="fpath">toolsConfig.json</span> files for testing your APIs but <span class="cmd">omce-deploy</span> requires additional parameters not included in the original format.</dd>
+        <dt>17.2.5.1 (Mobile Cloud Service)</dt>
+        <dd>Fixed an issue that affected OAuth authorization using <span class="cmd">omce-test</span>.</dd>
+        <dt>17.2.5 (Mobile Cloud Service)</dt>
+        <dd>Fixed an issue that affected remote REST APIs calls.</dd>
+        <dt>17.2.1 (Mobile Cloud Service)</dt>
+        <dd>Initial release.</dd>
+      </dl>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,33 @@
+#%RAML 0.8
+title: OracleMobileAPI
+version: 1.0
+baseUri: /mobile/custom/OracleMobileAPI
+protocols: [HTTPS]
+/ping:
+  description: |
+    Verify that the api can be reached.Causes nodejs container to start (if not already started).
+    
+  get:
+    protocols: [HTTPS]
+/kill:
+  description: |
+    Throws unhandled error that causes nodejs to close.
+    
+  delete:
+    protocols: [HTTPS]
+/rest:
+  description: |
+    Called by offline rest apis. Allows offline to communicate with mcs.
+    
+  get:
+    protocols: [HTTPS]
+  post:
+    protocols: [HTTPS]
+  put:
+    protocols: [HTTPS]
+  delete:
+    protocols: [HTTPS]
+  head:
+    protocols: [HTTPS]
+  options:
+    protocols: [HTTPS]

@@ -1,0 +1,1 @@
+{"cccvm.node.logging.max-file-size":1000000,"cccvm.node.logging.max-files":10,"cccvm.node.agent":{"require":"./agentkeepalive-no-timeout","https":"HttpsAgent","options":{"maxSockets":100,"maxFreeSockets":100,"keepAlive":true,"keepAliveMsecs":30000}}}

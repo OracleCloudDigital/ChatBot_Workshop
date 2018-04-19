@@ -1,0 +1,220 @@
+{
+    "apiName": {
+        "metainfo": {
+            "doc": "You must specify the name of your custom API",
+            "error": true,
+            "example": "sales"
+        }
+    },
+    "apiVersion": {
+        "metainfo": {
+            "doc": "You must specify the version of your custom API",
+            "error": true,
+            "example": "2.0"
+        }
+    },
+    "apiId": {
+        "metainfo": {
+            "doc": "You must specify the ID of your custom API",
+            "error": true,
+            "example": "3f076a30-622c-4f41-a5a6-dd703b067a1b"
+        }
+    },
+    "baseUrl": {
+        "metainfo": {
+            "doc": "You must specify the base URL for OMCe public APIs and custom code. This value can be found on the Settings page of the Mobile Backend",
+            "error": true,
+            "example": "http://<omce host>:<omce port>/"
+        }
+    },
+    "tokenEndpoint": {
+        "metainfo": {
+            "doc": "An OAuth token endpoint is required if you intend to use the deployment tool or test your API using OAuth. The OAuth Token Endpoint can be found in IDCS on the application settings page or in OMCe",
+            "error": false,
+            "example": "https://mcs-tenant.identity.c9dev0.oc9qadev.com/oauth2/v1/token"
+        }
+    },
+    "moduleLocation": {
+        "metainfo": {
+            "doc": "Location of your API implementation. Defaults to the directory containing your toolsConfig.json",
+            "error": true,
+            "example": "c:/location//of/your/implementation"
+        }
+    },
+    "backend": {
+        "metainfo": {
+            "doc": "Backend parameters are missing or undefined. In this case your js code either cannot use oracleMobile.rest apis or each client request must have 'authorization' and 'oracle-mobile-backend-id headers'.\nAlternatively in OMCe go to your Development -> Mobile Backends -> select your mobile backend, click Keys and copy backendId and anonymousKey.\nNote that OracleMobileAPI should allow anonymous user access: in OMCe open OracleMobileAPI -> select Security tab -> set Allow Anonymous User Access to ON.\nNote that some services (Storage for instance) require a user, cannot be done with anonymous access.\nYet another alternative is to specify only backendId, then you will be prompted for mobile user and password.",
+            "example": [
+                "{\n\t\"backendId\": \"0c0aa96e-b1ad-411d-a861-d0cd6b222b4c\", \n\t\"authorization\": {\n\t\t\t\"anonymousKey\": \"UFJJTUVfREVDRVBUSUNPTl9NT0JJTEVfQU5PTllNT1VTX0FQUElEOml6LmQxdTlCaWFrd2Nz\",\n\t\t\t\"clientId\": \"fc9aad00-06c3-4be7-940f-451058bfafaf\",\n\t\t\t\"clientSecret\": \"otLYAUStDgRmXALLuPa0\"\n\t\t}\n\t}\n}",
+                "{\n\t\"backendId\": \"0c0aa96e-b1ad-411d-a861-d0cd6b222b4c\", \n\t\"authorization\": {\n\t\t\t\"anonymousKey\": \"UFJJTUVfREVDRVBUSUNPTl9NT0JJTEVfQU5PTllNT1VTX0FQUElEOml6LmQxdTlCaWFrd2Nz\"\n\t\t}\n\t}\n}",
+                "{\n\t\"backendId\": \"0c0aa96e-b1ad-411d-a861-d0cd6b222b4c\"\n}"
+            ]
+        },
+        "backendId": {
+            "metainfo": {
+                "doc": "ID of the Backend. This value can be found on the Settings page of the Backend",
+                "example": "0c0aa96e-b1ad-411d-a861-d0cd6b222b4c"
+            }
+        },
+        "backendName": {
+            "metainfo": {
+                "doc": "Name of the Backend. This value can be found on the Settings page of the Backend",
+                "example": "FixtItFast"
+            }
+        },
+        "backendVersion": {
+            "metainfo": {
+                "doc": "Version of the Backend. This value can be found on the Settings page of the Backend",
+                "example": "2.3.0"
+            }
+        },
+        "authorization": {
+            "metainfo": {
+                "doc": "Backend authorization parameters are missing or undefined. In this case your js code either cannot use oracleMobile.rest apis or each client request must have 'authorization' and 'oracle-mobile-backend-id headers'.\nAlternatively in OMCe go to your Development -> Mobile Backends -> select your mobile backend, click Keys and copy backendId and anonymousKey.\nNote that OracleMobileAPI should allow anonymous user access: in OMCe open OracleMobileAPI -> select Security tab -> set Allow Anonymous User Access to ON.\nNote that some services (Storage for instance) require a user, cannot be done with anonymous access.\nYet another alternative is to specify only backendId, then you will be prompted for mobile user and password.",
+                "example": [
+                    "{\n\t\"authorization\": {\n\t\t\"anonymousKey\": \"UFJJTUVfREVDRVBUSUNPTl9NT0JJTEVfQU5PTllNT1VTX0FQUElEOml6LmQxdTlCaWFrd2Nz\",\n\t\t\"clientId\": \"fc9aad00-06c3-4be7-940f-451058bfafaf\",\n\t\t\"clientSecret\": \"otLYAUStDgRmXALLuPa0\"\n\t}\n}",
+                    "{\n\t\"authorization\": {\n\t\t\"anonymousKey\": \"UFJJTUVfREVDRVBUSUNPTl9NT0JJTEVfQU5PTllNT1VTX0FQUElEOml6LmQxdTlCaWFrd2Nz\"\n\t}\n}"
+                ]
+            },
+            "anonymousKey": {
+                "metainfo": [
+                    {
+                        "doc": "You will be prompted for mobile user and password. \nAlternatively in OMCe go to your mobile backend page, click Keys and copy anonymousKey.\nNote that OracleMobileAPI should allow anonymous user access: in OMCe open OracleMobileAPI -> select Security tab -> set Allow Anonymous User Access to ON.\nNote that some services (Storage for instance) require a user, cannot be done with anonymous access.\nYet another alternative is to set it to false - in this case each client request must have authorization header",
+                        "example": [
+                            "UFJJTUVfREVDRVBUSUNPTl9NT0JJTEVfQU5PTllNT1VTX0FQUElEOml6LmQxdTlCaWFrd2Nz",
+                            false
+                        ]
+                    },
+                    {
+                        "value": false,
+                        "doc": "In this case each client request must have an 'authorization' header. \nAlternatively in OMCe go to your mobile backend page, click Keys and copy anonymousKey.\nNote that OracleMobileAPI should allow anonymous user access: in OMCe open OracleMobileAPI -> select Security tab -> set Allow Anonymous User Access to ON.\nNote that some services (Storage for instance) require a user, cannot be done with anonymous access.\nYet another alternative is to remove this property - then you will be prompted for mobile user and password.",
+                        "example": "UFJJTUVfREVDRVBUSUNPTl9NT0JJTEVfQU5PTllNT1VTX0FQUElEOml6LmQxdTlCaWFrd2Nz"
+                    }
+                ]
+            },
+            "clientId": {
+                "metainfo": {
+                    "doc": "The Backend client ID can be found on the Settings tab of the backend in OMCe",
+                    "error": false,
+                    "example": "fc9aad00-06c3-4be7-940f-451058bfafaf"
+                }
+            },
+            "clientSecret": {
+                "metainfo": {
+                    "doc": "The Backend client Secret can be found on the Settings tab of the backend in OMCe",
+                    "error": false,
+                    "example": "otLYAUStDgRmXALLuPa0"
+                }
+            }
+        }
+    },
+    "tools": {
+        "metainfo": {
+            "doc": "Configuration parameters for command-line tools that leverage the OMCe public tooling APIs",
+            "example": "{\n\t\"tools\": {\n\t\t\"deployment\": {\n\t\t\t\"tempDirectory\": \"/tmp/omce-deploy\", \n\t\t}\n\t\t\"authorization\": {\n\t\t\t\"clientId\": \"fc9aad00-06c3-4be7-940f-451058bfafaf\",\n\t\t\t\"clientSecret\": \"otLYAUStDgRmXALLuPa0\" \n\t\t}\n\t}\n}"
+        },
+        "deployment": {
+            "metainfo": {
+                "doc": "Deployment parameters are required to deploy your API implementation to OMCe using the deployment tool.",
+                "example": "{\"tempDirectory\": \"c:/tmp/omce-deploy\"}"
+            },
+            "tempDirectory": {
+                "metainfo": {
+                    "doc": "Root directory for temporary storage during deployment process. A unique subdirectory is used for each deployment operation.",
+                    "example": "c:/tmp/omce-deploy",
+                    "default": "<default OS temp directory>"
+                }
+            }
+        },
+        "authorization": {
+            "metainfo": {
+                "doc": "IDCS OAuth parameters are required to use the deployment tool. The OAuth settings can be found in the IDCS admin console",
+                "example": "{\n\t\"authorization\": {\n\t\t\"clientId\": \"fc9aad00-06c3-4be7-940f-451058bfafaf\", \n\t\t\"clientSecret\": \"otLYAUStDgRmXALLuPa0\"\n\t}\n}"
+            },
+            "clientId": {
+                "metainfo": {
+                    "doc": "You must specify an OAuth client ID. The OAuth Client ID can be found in IDCS application settings",
+                    "error": true,
+                    "example": "fc9aad00-06c3-4be7-940f-451058bfafaf"
+                }
+            },
+            "clientSecret": {
+                "metainfo": {
+                    "doc": "You must specify the OAuth Client Secret. The OAuth Client Secret can be found in IDCS application settings",
+                    "error": true,
+                    "example": "otLYAUStDgRmXALLuPa0"
+                }
+            }
+        }
+    },
+    "container": {
+        "metainfo": {
+            "doc": "Optional parameters to run and debug your API in a local node container. If not specified, the parameters will be defaulted.",
+            "example": "{\"oracleMobileApiName\": \"OracleMobileAPI\", \"port\": 4000}"
+        },
+        "port": {
+            "metainfo": {
+                "doc": "You must specify the port (as a number) on which the NodeJS server will listen for API requests.",
+                "default": 4000
+            }
+        },
+        "oracleMobileApiName": {
+            "metainfo": {
+                "doc": "Name of the OracleMobileAPI you added to your Mobile Backend when configuring it to support debugging in the local node container.",
+                "default": "OracleMobileAPI"
+            }
+        }
+    },
+    "tests": {
+        "metainfo": {
+            "doc": "Defines one or more HTTP requests for testing your API. Each test defines the method, resource and payload for the request. Before submitting requests, you must first start the local node container using omce-ccc",
+            "example": "[ \"<testName>\": {\"method\": \"GET\", \"resource\": \"/<resourceName>/:<paramName>\", \"uriParameters\": { \"paramName\": \"<paramValue>\"} ]"
+        }
+    },
+    "proxy": {
+        "metainfo": {
+            "doc": "http and/or https proxy is required if your js code runs behind a firewall and makes direct (not through oracleMobile.rest) internet http and/or https calls.",
+            "example": "{\n\t\"http\": {\n\t\t\"host\": \"www-proxy.us.oracle.com\", \n\t\t\"port\": 80\n\t}, \n\t\"https\": {\n\t\t\"host\": \"www-proxy.us.oracle.com\",\n\t\t\"port\": 80\n\t}\n}"
+        },
+        "http": {
+            "metainfo": {
+                "doc": "http proxy is required if your js code runs behind a firewall and makes direct (not through oracleMobile.rest) internet http calls.",
+                "example": "{\"host\": \"www-proxy.us.oracle.com\", \"port\": 80}"
+            },
+            "host": {
+                "metainfo": {
+                    "doc": "host must be specified",
+                    "error": true,
+                    "example": "your-proxy.company.com"
+                }
+            },
+            "port": {
+                "metainfo": {
+                    "doc": "port must be specified (as a number)",
+                    "error": true,
+                    "example": 80
+                }
+            }
+        },
+        "https": {
+            "metainfo": {
+                "doc": "https proxy is required if your js code runs behind a firewall and makes direct (not through oracleMobile.rest) internet https calls.",
+                "example": "{\"host\": \"your-proxy.company.com\", \"port\": 80}"
+            },
+            "host": {
+                "metainfo": {
+                    "doc": "host must be specified",
+                    "error": true,
+                    "example": "\"your-proxy.company.com\""
+                }
+            },
+            "port": {
+                "metainfo": {
+                    "doc": "port must be specified (as a number)",
+                    "error": true,
+                    "example": 80
+                }
+            }
+        }
+    }
+}
