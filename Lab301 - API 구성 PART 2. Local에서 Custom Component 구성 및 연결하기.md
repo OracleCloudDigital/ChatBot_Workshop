@@ -1,4 +1,4 @@
-Lab300 - Custom Component 구현, 수정 및 연결
+Lab301 - Custom Component 구현, 수정 및 연결
 =======
 
 이 랩에서 기존에 만들어둔 FirstBot에서 서비스를 연결 하고 수정하는 것을
