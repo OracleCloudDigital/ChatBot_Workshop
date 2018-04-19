@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BotsChat Web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link href="styles/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="loader">
+        <img src="images/preloader.gif" />
+    </div>
+    <div class="row app-header">
+        <div class="col-xs-2"><a href="settings.html"><img class="settings-icon" src="images/settings.png" /></a></div>
+        <div class="col-xs-6 col-xs-offset-1 app-title">Chat SDK Sample</div>
+    </div>
+    <div class="container" id="configuration-form">
+        <form class="form-signin text-center">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 mcs-logo">
+                    <img src="images/Mobile_cloud_enterprise_cloud.png" alt="Moblie cloud enterprise">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h2 class="title">Mobile Cloud Enterprise </h2>
+                    <h3 class="form-signin-heading">CLOUD</h3>
+                    <div id="indexpage">
+                        <h2 class="welcome">Welcome</h2>
+                        <p>This sample app shows how to use the Oracle Intelligent BOT SDK to embed chat function in a web app.</p>
+                        <p style="margin: 20px;">Your mobile app would go here</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row submit-button">
+                <button id="openChatButton" class="btn btn-lg btn-primary col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4" type="submit" onclick="saveAppId(event)">Chat with your BOT</button>
+            </div>
+            
+        </form>
+    </div>
+    <div class="row text-center">
+            <div class="col-md-4 col-md-offset-4 footer-logo">
+                <img src="images/oracle-logo.png" alt="Oracle">
+            </div>
+    </div>
+    <script src="scripts/bots.js"></script>
+    <script src="scripts/home.js"></script>
+</body>
+
+</html>

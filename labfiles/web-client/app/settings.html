@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BotsChat Web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link href="styles/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="row app-header">
+        <div class="col-xs-2"><a href="home.html">Cancel</a></div>
+        <div class="col-xs-6 col-xs-offset-1 app-title">Update App ID</div>
+        <div class="col-xs-2 pull-right" onclick="saveAppId(event)"><a href="home.html">Save</a></div>        
+    </div>
+    <div class="container" id="configuration-form" style="margin-top: 10%;">
+        <form class="form-signin text-center">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="col-sm-10 col-xs-12 app-id indexpage" style="margin-top: 0;">
+                        <label for="inputPassword" class="sr-only">AppId</label>
+                        <input type="text" id="appId" class="form-control" placeholder="Enter the App ID" required>
+                        <p class="app-id-note settings-appId-note">The App ID is found on the channels page of the Oracle Intelligent Bot you wish to connect with.</p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        function saveAppId(e) {
+            e.preventDefault();
+            let appId = document.getElementById("appId").value;
+            window.localStorage.setItem("appId", appId);
+            window.location.href="home.html";
+        }
+    </script>
+</body>
+
+</html>
