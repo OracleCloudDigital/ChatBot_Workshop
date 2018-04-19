@@ -15,7 +15,7 @@ OMCe에 접속해, 원하시는 API로 접속한 후 상단의 TEST를 눌러 �
 ![Screen Shot 2018-04-19 at 1.48.31 P](media/15159994715262/Screen%20Shot%202018-04-19%20at%201.48.31%20PM.png)
 
 ### 2. TEST
-현재 어떤식으로 Response가 오는지 확인합니다. 
+Response 확인합니다. 
 
 ![Screen Shot 2018-04-19 at 1.50.24 P](media/15159994715262/Screen%20Shot%202018-04-19%20at%201.50.24%20PM.png)
 ![Screen Shot 2018-04-19 at 1.50.33 P](media/15159994715262/Screen%20Shot%202018-04-19%20at%201.50.33%20PM.png)
@@ -76,7 +76,7 @@ Deployment completed successfully
 
 ### 5.  Test하기 
 
-response가 바뀐 것을 확인 하니다.수 있습닏
+response가 바뀐 것을 확인 하실 수 있습니다.
 
 ![Screen Shot 2018-04-19 at 1.53.45 P](media/15159994715262/Screen%20Shot%202018-04-19%20at%201.53.45%20PM.png)
 ![Screen Shot 2018-04-19 at 1.53.55 P](media/15159994715262/Screen%20Shot%202018-04-19%20at%201.53.55%20PM.png)
