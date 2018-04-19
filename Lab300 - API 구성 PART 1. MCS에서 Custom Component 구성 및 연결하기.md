@@ -1,4 +1,4 @@
-Lab301 - PART 1. MCS에서 Custom Component 구성 및 연결하기
+Lab300 - PART 1. MCS에서 Custom Component 구성 및 연결하기
 =======
 
 이 랩에서는 MCS를 이용해서 Custom Component를 수정하고 간편하게 deploy까지 해 볼 것입니다.
