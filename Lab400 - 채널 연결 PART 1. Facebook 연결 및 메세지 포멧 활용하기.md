@@ -26,15 +26,16 @@ Lab400 - 채널 연결 PART 1. Facebook 연결 및 메세지 포멧 활용하기
 ### 2. 아래의 Command를 이용해서 Facebook의 Bot과 대화합니다. 여러가지 Layout으로 나오는 것을 확인하실 수 있습니다. 
 
     - 이미지
-    - 버튼
-    - 위치
-    - 빠른답장
     - 리스트
+    - 버튼
+    - 빠른답장
+    - 위치
 
 
-
-
-
-
+![Screen Shot 2018-04-19 at 3.31.17 P](media/15241165401351/Screen%20Shot%202018-04-19%20at%203.31.17%20PM.png)
+![Screen Shot 2018-04-19 at 3.31.29 P](media/15241165401351/Screen%20Shot%202018-04-19%20at%203.31.29%20PM.png)
+![Screen Shot 2018-04-19 at 3.31.36 P](media/15241165401351/Screen%20Shot%202018-04-19%20at%203.31.36%20PM.png)
+![Screen Shot 2018-04-19 at 3.31.49 P](media/15241165401351/Screen%20Shot%202018-04-19%20at%203.31.49%20PM.png)
+![Screen Shot 2018-04-19 at 3.32.38 P](media/15241165401351/Screen%20Shot%202018-04-19%20at%203.32.38%20PM.png)
 
 
