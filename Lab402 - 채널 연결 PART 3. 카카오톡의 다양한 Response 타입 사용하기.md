@@ -93,5 +93,5 @@ node omce-deploy.js ../../bots_18.1.5/bots/toolsConfig.json -u <YOUR_ID> -p <YOU
 ![Message Button](media/images/K_MessageButton.jpg)
 
 ## Keyboard View
-![Message Button](media/images/K_keyboard.jpg)
+![Message Button](media/images/K_keyboard.jpg){: width="600px"}
 
