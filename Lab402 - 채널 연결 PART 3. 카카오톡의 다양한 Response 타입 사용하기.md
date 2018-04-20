@@ -50,14 +50,14 @@ let keyboard = MessageModel.keyboardObject(buttons);
 conversation.reply(MessageModel.kakaoConversationMessage("키보드 버튼까지 있는 포맷입니다.", photo, message_button, keyboard));
 ```
 
-### CUSTOM CODE 배포하기
+# CUSTOM CODE 배포하기
 labfiles\ bots_18.1.5\bots\toolsConfig.json을 제공된 환경에 맞게 수정합니다.
 
 다음 명령어를 수행하여 컴포넌트를 배포합니다.
 ```
-node omce-deploy.js ../../bots_18.1.5/bots/toolsConfig_ibk.json -u <YOUR_ID> -p <YOUR_PASSWORD>
+node omce-deploy.js ../../bots_18.1.5/bots/toolsConfig.json -u <YOUR_ID> -p <YOUR_PASSWORD>
 ```
-### BOT FLOW
+# BOT FLOW
 기존 카카오톡이 연결되어 있는 Bot Flow에 위에서 생성한 Custom Component를 연결합니다. 컴포넌트 등록은 Custom Component 구현 Lab을 참고합니다.
 
 컴포넌트가 연결되었으면 Bot Flow에 다음을 추가 합니다.
@@ -85,13 +85,13 @@ node omce-deploy.js ../../bots_18.1.5/bots/toolsConfig_ibk.json -u <YOUR_ID> -p 
    transitions: 
       return : "done"
 ```
-## 테스트
-# Text / Image View
+# 테스트
+## Text / Image View
 ![Text / Image](media/images/K_text_image.jpg)
 
-# Message Button View
+## Message Button View
 ![Message Button](media/images/K_MessageButton.jpg)
 
-# Keyboard View
+## Keyboard View
 ![Message Button](media/images/K_keyboard.jpg)
 
