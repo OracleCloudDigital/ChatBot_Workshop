@@ -1,4 +1,4 @@
-# Lab700 - Connector를 이용한 외부 API 연결 
+Lab700 - Connector를 이용한 외부 API 연결 
 =======
 
 
