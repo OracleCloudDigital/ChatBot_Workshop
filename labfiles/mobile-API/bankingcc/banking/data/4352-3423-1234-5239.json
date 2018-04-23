@@ -1,0 +1,54 @@
+[
+  {
+    "date": "2016-01-20T10:34:31Z",
+    "type" : "payment",
+    "description" : "Payment for 01/15 billing cycle",
+    "amount": 230.45
+  },
+  {
+    "date": "2016-11-08T10:34:31Z",
+    "type" : "debit",
+    "category": "travel",
+    "description": "Merchant 1",
+    "amount": -103.28
+  },
+  {
+    "date": "2016-11-23T10:34:31Z",
+    "type" : "debit",
+    "category": "gas",
+    "description": "Merchant 2",
+    "amount": -8.25
+  },
+  {
+    "date": "2016-11-23T10:34:31Z",
+    "type" : "debit",
+    "category": "restaurants",
+    "description": "Merchant 3",
+    "amount": -60.00
+  },
+  {
+    "date": "2016-11-23T10:34:31Z",
+    "type" : "credit",
+    "category": "restaurants",
+    "description": "Merchant 3, refund",
+    "amount": 20.00
+  },
+  {
+    "date": "2016-11-30T10:34:31Z",
+    "type" : "debit",
+    "category": "retail",
+    "amount": -234.00
+  },
+  {
+    "date": "2016-12-07T12:34:31Z",
+    "type" : "debit",
+    "category": "gas",
+    "amount": -45.00
+  },
+  {
+    "date": "2016-12-07T12:34:31Z",
+    "type" : "debit",
+    "category": "uber",
+    "amount": -8.80
+  }
+]

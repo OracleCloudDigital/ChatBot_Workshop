@@ -1,0 +1,44 @@
+metadata:
+  platformVersion: 1.0
+main: true
+name: InstantApp
+context:
+  variables:
+    phonenum: "string"
+    name: "string"
+    email: "string"
+    appointment: "string"
+
+states:
+  set1:  
+    component: "System.SetVariable"
+    properties:
+      variable: "name" 
+      value: "전성혜"
+    transitions: {}
+  set2:  
+    component: "System.SetVariable"
+    properties:
+      variable: "email" 
+      value: "laurenj@gmail.com"
+    transitions: {}
+  set3:  
+    component: "System.SetVariable"
+    properties:
+      variable: "phonenum" 
+      value: "010-4353-4354"
+    transitions: {}    
+  startInstantApp:
+    component: "System.Interactive"
+    properties:
+      sourceVariableList: "name, email, phonenum"
+      variable: "appointment"
+      id: "make_doctor_app"
+      prompt: "링크 눌러서 예약을 진행합니다"
+    transitions: {}
+  instantAppOutput:
+    component: "System.Output"
+    properties:
+      text: "'${appointment.value.professorName}' 교수님과의 진료예약이 성공적으로 접수되었습니다."
+    transitions: 
+      return : "instantAppOutput"

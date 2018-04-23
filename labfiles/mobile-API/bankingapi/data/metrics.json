@@ -1,0 +1,334 @@
+[
+  {
+    "account": "4352-3423-1234-5239",
+    "date": "2016-01-20T10:34:31Z",
+    "type": "payment",
+    "category": "음식점",
+    "description": "Payment for 01/15 billing cycle",
+    "fromAccountType": "credit card",
+    "amount": 230.45
+  },
+  {
+    "account": "4352-3423-1234-5239",
+    "date": "2016-11-08T10:34:31Z",
+    "type": "debit",
+    "category": "travel",
+    "description": "Merchant 1",
+    "fromAccountType": "credit card",
+    "amount": -103.28
+  },
+  {
+    "account": "4352-3423-1234-5239",
+    "date": "2016-11-23T10:34:31Z",
+    "type": "debit",
+    "category": "가스",
+    "description": "Merchant 2",
+    "fromAccountType": "credit card",
+    "amount": -8.25
+  },
+  {
+    "account": "4352-3423-1234-5239",
+    "date": "2016-11-23T11:34:31Z",
+    "type": "debit",
+    "category": "restaurants",
+    "description": "Merchant 3",
+    "fromAccountType": "credit card",
+    "amount": -60
+  },
+  {
+    "account": "4352-3423-1234-5239",
+    "date": "2016-11-24T10:34:31Z",
+    "type": "credit",
+    "category": "restaurants",
+    "description": "Merchant 3, refund",
+    "fromAccountType": "credit card",
+    "amount": 20
+  },
+  {
+    "account": "4352-3423-1234-5239",
+    "date": "2016-11-30T10:34:31Z",
+    "type": "debit",
+    "category": "retail",
+    "description": "Merchant 4, retail",
+    "fromAccountType": "credit card",
+    "amount": -234
+  },
+  {
+    "account": "4352-3423-1234-5239",
+    "date": "2016-12-07T12:34:31Z",
+    "type": "debit",
+    "category": "gas",
+    "description": "Merchant 2",
+    "fromAccountType": "credit card",
+    "amount": -45
+  },
+  {
+    "account": "4352-3423-1234-5239",
+    "date": "2016-12-07T14:34:31Z",
+    "type": "debit",
+    "category": "uber",
+    "description": "Payment uber",
+    "fromAccountType": "credit card",
+    "amount": -8.8
+  },
+  {
+    "account": "258293-832",
+    "date": "2016-01-20T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "savings",
+    "amount": 230.45
+  },
+  {
+    "account": "258293-832",
+    "date": "2016-01-22T10:34:31Z",
+    "type": "withdrawal",
+    "category": "withdrawal",
+    "description": "Withdrawal",
+    "fromAccountType": "savings",
+    "amount": -100
+  },
+  {
+    "account": "258293-832",
+    "date": "2016-03-20T10:34:31Z",
+    "type": "withdrawal",
+    "category": "withdrawal",
+    "description": "Withdrawal",
+    "fromAccountType": "savings",
+    "amount": -5
+  },
+  {
+    "account": "258293-832",
+    "date": "2016-03-22T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "savings",
+    "amount": 952
+  },
+  {
+    "account": "258293-832",
+    "date": "2016-03-22T11:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "savings",
+    "amount": 952
+  },
+  {
+    "account": "258293-832",
+    "date": "2016-03-23T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "savings",
+    "amount": 111.11
+  },
+  {
+    "account": "258293-832",
+    "date": "2016-03-24T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "savings",
+    "amount": 500
+  },
+  {
+    "account": "258293-832",
+    "date": "2016-04-15T10:34:31Z",
+    "type": "withdrawal",
+    "category": "withdrawal",
+    "description": "Withdrawal",
+    "fromAccountType": "savings",
+    "amount": -60
+  },
+  {
+    "account": "258293-832",
+    "date": "2016-04-16T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "savings",
+    "amount": 50
+  },
+  {
+    "account": "258293-832",
+    "date": "2016-04-25T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "savings",
+    "amount": 20
+  },
+  {
+    "account": "258293-832",
+    "date": "2016-04-26T10:34:31Z",
+    "type": "withdrawal",
+    "category": "withdrawal",
+    "description": "Withdrawal",
+    "fromAccountType": "savings",
+    "amount": -40
+  },
+  {
+    "account": "903423-123",
+    "date": "2016-01-20T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "checking",
+    "amount": 230.45
+  },
+  {
+    "account": "903423-123",
+    "date": "2016-01-22T10:34:31Z",
+    "type": "withdrawal",
+    "category": "withdrawal",
+    "description": "Withdrawal",
+    "fromAccountType": "checking",
+    "amount": -100
+  },
+  {
+    "account": "903423-123",
+    "date": "2016-02-05T10:34:31Z",
+    "type": "check",
+    "category": "check",
+    "description": "Check",
+    "fromAccountType": "checking",
+    "amount": -30.45
+  },
+  {
+    "account": "903423-123",
+    "date": "2016-03-20T10:34:31Z",
+    "type": "withdrawal",
+    "category": "withdrawal",
+    "description": "Withdrawal",
+    "fromAccountType": "checking",
+    "amount": -10
+  },
+  {
+    "account": "903423-123",
+    "date": "2016-03-22T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "checking",
+    "amount": 952
+  },
+  {
+    "account": "903423-123",
+    "date": "2016-03-22T10:38:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "checking",
+    "amount": 962
+  },
+  {
+    "account": "903423-123",
+    "date": "2016-03-23T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "checking",
+    "amount": 111.11
+  },
+  {
+    "account": "903423-123",
+    "date": "2016-03-24T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "checking",
+    "amount": 500
+  },
+  {
+    "account": "903423-123",
+    "date": "2016-04-02T10:34:31Z",
+    "type": "check",
+    "category": "check",
+    "description": "Check",
+    "fromAccountType": "checking",
+    "amount": -250.55
+  },
+  {
+    "account": "903423-123",
+    "date": "2016-04-15T10:34:31Z",
+    "type": "withdrawal",
+    "category": "withdrawal",
+    "description": "Withdrawal",
+    "fromAccountType": "checking",
+    "amount": -60
+  },
+  {
+    "account": "903423-123",
+    "date": "2016-04-16T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "checking",
+    "amount": 50
+  },
+  {
+    "account": "903423-123",
+    "date": "2016-04-25T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "checking",
+    "amount": 20
+  },
+  {
+    "account": "903423-123",
+    "date": "2016-04-26T10:34:31Z",
+    "type": "withdrawal",
+    "category": "withdrawal",
+    "description": "Withdrawal",
+    "fromAccountType": "checking",
+    "amount": -40
+  },
+  {
+    "account": "903423-123",
+    "date": "2016-04-27T10:34:31Z",
+    "type" : "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "checking",
+    "amount": 355.55
+  },
+  {
+    "account": "903423-123",
+    "date": "2016-12-03T10:35:20Z",
+    "type" : "check",
+    "category": "check",
+    "description": "Check",
+    "fromAccountType": "checking",
+    "amount": -22.00
+  },
+  {
+    "account": "903423-123",
+    "date": "2016-12-04T15:13:41Z",
+    "type" : "check",
+    "category": "check",
+    "description": "Check",
+    "fromAccountType": "checking",
+    "amount": -33.00
+  },
+  {
+    "account": "903423-123",
+    "date": "2016-12-05T20:20:55Z",
+    "type" : "check",
+    "category": "check",
+    "description": "Check",
+    "fromAccountType": "checking",
+    "amount": -200.00
+  },
+  {
+    "account": "903423-123",
+    "date": "2016-12-11T16:20:30Z",
+    "type" : "check",
+    "category": "check",
+    "description": "Check",
+    "fromAccountType": "checking",
+    "amount": -100.55
+  }]

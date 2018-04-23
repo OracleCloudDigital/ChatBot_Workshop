@@ -1,0 +1,220 @@
+#metadata: information about the flow
+#  platformVersion: the version of the bots platform that this flow was written to work with 
+metadata:
+  platformVersion: 1.0
+main: true
+name: FB_MSG_Format
+#context: Define the variables which will used throughout the dialog flow here.
+context:
+  variables:
+#The syntax for defining the variables is variablename: "variableType".
+# The "variableType" can be defined as a primitive type ("int", "string", "boolean"), "list", or an entity name. A variable can also hold the results returned by the Intent Engine. For these variables, the "variableType" must be "nlpresult" (for example, iResult: "nlpresult").
+    greeting: "string"
+    name: "string"
+    hotelList : "string"
+#states is where you can define the various states within your flow.
+# The syntax for defining a state is
+# statename:
+#   component:Specify the component you want to use. This can be either a Built-In or custom component.
+#   properties:
+#     property1: "value" (These are the properties to the specified component
+#   transitions: You can specify one of the following four
+#     next: Specify the state you want to execute next after this state. By default it will execute the state specified after this
+#     error: Specify the state you want to execute in case the component encounters any error in execution.
+#     actions: You can handle various actions returned by the components here the syntax is actionName: "statename"
+#        action1: state1
+#     return: "done" You can exit the flow using the return statement
+    myLocation: "string"      
+    iResult: "nlpresult"
+states:
+  intent:
+    component: "System.Intent"
+    properties:
+      variable: "iResult"
+      confidenceThreshold: 0.4
+    transitions:
+      actions:
+        Button: "startButton"
+        Image: "startImage" #not yet
+        ListTemplate: "startTemplate"
+        Location: "askLocation"
+        QuickReply: "startQuickReply"
+        InstantApp: "interactive"               
+        unresolvedIntent: "unresolved"
+            
+  interactive:
+    component: "System.Interactive"
+    properties:
+      sourceVariableList: ""
+      variable: ""
+      id: "Prudential_POC"
+      prompt: "방문 신청을 등록하시려면 아래의 링크를 눌러주세요"
+    transitions:
+      return: "done"             
+            
+  startImage:
+    component: "System.CommonResponse"
+    properties:
+      processUserMessage: false
+      keepTurn: false
+      metadata: 
+        responseItems:  
+        - type: "text"
+          text: "이미지입니다"
+        - type: "attachment" 
+          attachmentType: "image" 
+          attachmentUrl: "https://www.oracle.com/webfolder/s/brand/assets/i/specimens/identity/logo/primary-sig.gif"  
+    transitions:
+      return: "startImage"           
+                    
+          
+  startTemplate:
+    component: "System.SetVariable"
+    properties:
+      variable: "hotelList"
+      value:
+      - name: "San Francisco Airport Marriott Waterfront"
+        description: "San Francisco Airport Marriott Waterfront.With strategic focus on offering an unbeatable hotel experience,\
+          \ San Francisco Airport Marriott Waterfront features redesigned accommodations that cater to today tech-savvy travelers"
+        image: "http://www.freeuploadimages.org/images/roh73uacmhs28gjf1vj.jpg"
+        price: "380 - 500$" 
+        keyword: "1"
+      - name: "The Ritz-Carlton, Half Moon Bay"
+        description: "With a stay at The Ritz-Carlton, Half Moon Bay in Half Moon Bay, you'll be in the historical district and minutes \
+          \  from Half Moon Bay Golf Links, and close to Half Moon Bay State Beach. This 5-star hotel is within the vicinity of Miramar Beach and Pillar Point Harbor."
+        image: "http://www.freeuploadimages.org/images/t61kldcse4hmyhwtmme.jpg"
+        price: "500 - 700$" 
+        keyword: "2"
+      - name: "Hilton San Francisco Unton Square"
+        description: "Hilton San Francisco Union Square, located in the Theater District, \
+          \ puts you in walking distance to cable cars and Moscone Center and about 1 mile from Chinatown and Nob Hill."
+        image: "http://www.freeuploadimages.org/images/dvdt6as90sgf13m5x8n.jpg"
+        price: "500 - 1000$"
+        keyword: "3"
+    transitions: {}   
+  showhotelCards:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "cards"
+          cardLayout: "vertical"
+          name: "HotelCards"
+          cards:
+          - title: "${hotelList.keyword}.${hotelList.name}"
+            description: "${hotelList.description}"
+            imageUrl: "${hotelList.image}"
+            name: "HotelCards"
+            iteratorVariable: "hotelList"
+            rangeSize: "4"
+            actions:
+            - label: "Book Now"
+              keyword: "${hotelList.keyword},${hotelList.name}"
+              type: "postback"
+              payload:
+                action: "order"
+                variables:
+                  hotelChoosen: "${hotelList.name}"
+                  hotelChoosenPrice: "${hotelList.price}"
+                  hotelChoosenImage: "${hotelList.image}"
+              name: "Order"
+          channelCustomProperties:
+          - channel: "facebook"
+            properties:
+              top_element_style: "large"      
+      processUserMessage: false
+    transitions: 
+      return: "processList"    
+
+
+            
+  startButton:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "안녕하세요, ${profile.firstName}, 버튼을 눌러보세요"
+          separateBubbles: true
+          actions:
+          - label: "첫번째 버튼"
+            type: "postback"
+            payload:
+              action: "첫번째"
+          - label: "두번째 버튼"
+            type: "postback"
+            payload:
+              action: "두번째"
+      processUserMessage: false
+    transitions:  
+      return: "startButton"
+      
+  askLocation:
+    component: "System.CommonResponse"
+    properties:
+      variable: "myLocation"
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "위치를 알려주세요"
+          separateBubbles: true
+          rendered: ""
+          name: "Our pizzas"
+        globalActions:
+        - label: "나의 위치 보내기"
+          type: "location"
+          name: "SendLocation"              
+      processUserMessage: false
+    transitions:  {}
+  processLocation:
+    component: "System.Output"
+    properties:
+      text: "위치를 알려주셔서 감사합니다!"
+    transitions:
+      return: "processLocation"
+      
+      
+  startCall:     
+    component: "System.CommonResponse"
+    properties:
+      processUserMessage: true
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "이곳으로 전화 하실 수 있습니다:"
+        globalActions:
+        - label: "전화하기"
+          type: "call"
+          payload:
+            phoneNumber: "+821047373741"
+    transitions:
+      return: "startCall"                
+            
+            
+  startQuickReply:     
+    component: "System.CommonResponse"
+    properties:
+      processUserMessage: true
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "빠른답장"
+        globalActions:
+        - label: "첫번째"
+          type: "postback"
+          payload:
+            action: "첫번째"             
+        - label: "두번째"
+          type: "postback"
+          payload:
+            action: "두번째"                
+    transitions:
+      return: "startQuickReply"    
+      
+      
+  unresolved:
+    component: "System.Output"
+    properties:
+      text: "Sorry I don't understand that question!"
+    transitions:
+      return: "unresolved"        

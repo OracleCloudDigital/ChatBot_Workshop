@@ -1,0 +1,536 @@
+{
+   "actionList": [
+      {
+         "elementTrigger": "button_1",
+         "enabled": true,
+         "eventTrigger": "valueChanged",
+         "pane": "PANE_2",
+         "trigger": "always",
+         "type": "activatePane"
+      },
+      {
+         "elementTrigger": "signature_1",
+         "enabled": true,
+         "eventTrigger": "valueChanged",
+         "parameters": [
+            {
+               "name": "professorName",
+               "value": "{singleLineInput_1}"
+            }
+         ],
+         "trigger": "change",
+         "type": "exitToBot"
+      }
+   ],
+   "authList": [
+   ],
+   "chatbox": {
+      "active": true,
+      "build": 7,
+      "builder": {
+         "editCount": 46
+      },
+      "code": "make_doctor_app",
+      "id": 546,
+      "trashed": false
+   },
+   "displayList": [
+      {
+         "allowDismiss": false,
+         "elementList": [
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "src": "/upload/s3?k=public%2FO189%2Fschema%2F_twW%2F-uxw%2F8hxZa2jiUiHC4UieRfLLRbdeOloaEnN7-AyTGXedg23_giTmXf1CayhendRydgOFxti1x9wY1E56ag%3D%3D%2Fdownload.png",
+                  "type": "image"
+               },
+               "id": "image_1",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left",
+                  "width": "90%"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "generatedHtml": "<p>이름 : {name}</p>\n<p>전화번호 : {phonenum}</p>\n<p>이메일 : {email}</p>\n",
+                  "text": "이름 : {name}\n\n전화번호 : {phonenum}\n\n이메일 : {email}",
+                  "type": "markdown"
+               },
+               "id": "label_1",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "customerCanEdit": true,
+                  "elementValidation": {
+                     "maxLength": 0,
+                     "maxLengthErrorMessage": "This field does not accept more than {$count} characters.",
+                     "minLength": 0,
+                     "minLengthErrorMessage": "This field requires at least {$count} characters.",
+                     "regex": "",
+                     "regexErrorMessage": "",
+                     "required": false,
+                     "requiredErrorMessage": "This is required",
+                     "snippet": "",
+                     "validateMaxLength": false,
+                     "validateMinLength": false,
+                     "validateRegex": false,
+                     "validateSnippet": false
+                  },
+                  "label": "진료 희망 교수님",
+                  "labelInline": true,
+                  "maxLength": 256,
+                  "placeholder": "",
+                  "required": false,
+                  "type": "singleLineInput"
+               },
+               "id": "singleLineInput_1",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#ccc",
+                  "borderRadius": "4px",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "float": "left",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "customerCanEdit": true,
+                  "elementValidation": {
+                     "maxLength": 0,
+                     "maxLengthErrorMessage": "This field does not accept more than {$count} characters.",
+                     "minLength": 0,
+                     "minLengthErrorMessage": "This field requires at least {$count} characters.",
+                     "regex": "",
+                     "regexErrorMessage": "",
+                     "required": true,
+                     "requiredErrorMessage": "필수 항목 입니다",
+                     "snippet": "",
+                     "validateMaxLength": false,
+                     "validateMinLength": false,
+                     "validateRegex": false,
+                     "validateSnippet": false
+                  },
+                  "label": "증상",
+                  "maxLength": 1000,
+                  "placeholder": "자세하게 기재 해 주세요",
+                  "required": false,
+                  "rows": 5,
+                  "type": "richtext"
+               },
+               "id": "richText_1",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#ccc",
+                  "borderRadius": "4px",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "customerCanEdit": true,
+                  "elementValidation": {
+                     "maxLength": 0,
+                     "maxLengthErrorMessage": "This field does not accept more than {$count} characters.",
+                     "minLength": 0,
+                     "minLengthErrorMessage": "This field requires at least {$count} characters.",
+                     "regex": "",
+                     "regexErrorMessage": "",
+                     "required": false,
+                     "requiredErrorMessage": "This is required",
+                     "snippet": "",
+                     "validateMaxLength": false,
+                     "validateMinLength": false,
+                     "validateRegex": false,
+                     "validateSnippet": false
+                  },
+                  "hasTime": true,
+                  "label": "방문 날짜",
+                  "labelInline": false,
+                  "maxDate": "2018-04-28T00:00:00+09:00",
+                  "minDate": "",
+                  "placeholder": "예약을 원하시는 날을 기재 해 주세요",
+                  "required": false,
+                  "type": "date"
+               },
+               "id": "date_1",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#ccc",
+                  "borderRadius": "4px",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "buttonClass": "InteractiveButton",
+                  "customerCanEdit": true,
+                  "elementValidation": {
+                     "maxLength": 0,
+                     "maxLengthErrorMessage": "This field does not accept more than {$count} characters.",
+                     "minLength": 0,
+                     "minLengthErrorMessage": "This field requires at least {$count} characters.",
+                     "regex": "",
+                     "regexErrorMessage": "",
+                     "required": false,
+                     "requiredErrorMessage": "This is required",
+                     "snippet": "",
+                     "validateMaxLength": false,
+                     "validateMinLength": false,
+                     "validateRegex": false,
+                     "validateSnippet": false
+                  },
+                  "label": "다음",
+                  "required": false,
+                  "type": "button"
+               },
+               "id": "button_1",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#598EC7",
+                  "borderColor": "#333",
+                  "borderRadius": "3px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#FFFFFF",
+                  "elementClass": "",
+                  "fontSize": "14px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "center"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            }
+         ],
+         "id": "PANE_1",
+         "validation": {
+            "asYouGo": true,
+            "errorMessage": "Please see errors above before continuing.",
+            "snippet": "",
+            "usingSnippet": false
+         }
+      },
+      {
+         "allowDismiss": false,
+         "elementList": [
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "customerCanEdit": true,
+                  "elementValidation": {
+                     "maxLength": 0,
+                     "maxLengthErrorMessage": "This field does not accept more than {$count} characters.",
+                     "minLength": 0,
+                     "minLengthErrorMessage": "This field requires at least {$count} characters.",
+                     "regex": "",
+                     "regexErrorMessage": "",
+                     "required": false,
+                     "requiredErrorMessage": "This is required",
+                     "snippet": "",
+                     "validateMaxLength": false,
+                     "validateMinLength": false,
+                     "validateRegex": false,
+                     "validateSnippet": false
+                  },
+                  "initialPage": 1,
+                  "required": false,
+                  "src": "/upload/s3?k=public%2FO189%2Fschema%2FSLlS%2F5ZSn%2FYBGveEDxrgoxJVH4R1v3z-n2r4CuK_i8SAGmn3tIDmtr7aQ5gXuegu87wRgHU1WtwT7bYHznNIaiqQ%3D%3D%2Fprivacy_v2.pdf",
+                  "type": "pdf"
+               },
+               "id": "pdf_1",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left",
+                  "width": "90%"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "textAlign": "center",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "confirmButton": "확인",
+                  "customerCanEdit": true,
+                  "elementValidation": {
+                     "maxLength": 0,
+                     "maxLengthErrorMessage": "This field does not accept more than {$count} characters.",
+                     "minLength": 0,
+                     "minLengthErrorMessage": "This field requires at least {$count} characters.",
+                     "regex": "",
+                     "regexErrorMessage": "",
+                     "required": false,
+                     "requiredErrorMessage": "This is required",
+                     "snippet": "",
+                     "validateMaxLength": false,
+                     "validateMinLength": false,
+                     "validateRegex": false,
+                     "validateSnippet": false
+                  },
+                  "label": "개인 정보 관련법에 동의 하시면 서명 해 주세요.",
+                  "labelInline": false,
+                  "required": false,
+                  "type": "signature"
+               },
+               "id": "signature_1",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "rgb(225, 237, 251)",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            }
+         ],
+         "id": "PANE_2",
+         "validation": {
+            "asYouGo": true,
+            "errorMessage": "Please see errors above before continuing.",
+            "snippet": "",
+            "usingSnippet": false
+         }
+      }
+   ],
+   "externalDataList": [
+      {
+         "allowWrite": false,
+         "id": "name",
+         "path": "name",
+         "prefetch": true,
+         "source": "param"
+      },
+      {
+         "allowWrite": false,
+         "id": "phonenum",
+         "path": "phonenum",
+         "prefetch": true,
+         "source": "param"
+      },
+      {
+         "allowWrite": false,
+         "id": "email",
+         "path": "email",
+         "prefetch": true,
+         "source": "param"
+      }
+   ],
+   "general": {
+      "author": "Unknown",
+      "created": "Mon Apr 23 2018",
+      "icon": "https://cdn.tetrapod.io/chatbox/template-images/blank.png",
+      "inviteMessageList": [
+         "Click to join this Instant App {link}"
+      ],
+      "name": "make_doctor_app"
+   },
+   "snippetList": [
+   ],
+   "version": 6
+}

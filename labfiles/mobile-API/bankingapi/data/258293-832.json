@@ -1,0 +1,90 @@
+[
+  {
+    "date": "2017-01-20T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "savings",
+    "amount": 230.45
+  },
+  {
+    "date": "2017-01-22T10:34:31Z",
+    "type": "withdrawal",
+    "category": "withdrawal",
+    "description": "Withdrawal",
+    "fromAccountType": "savings",
+    "amount": -100
+  },
+  {
+    "date": "2016-03-20T10:34:31Z",
+    "type": "withdrawal",
+    "category": "withdrawal",
+    "description": "Withdrawal",
+    "fromAccountType": "savings",
+    "amount": -5
+  },
+  {
+    "date": "2016-03-22T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "savings",
+    "amount": 952
+  },
+  {
+    "date": "2016-03-22T11:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "savings",
+    "amount": 952
+  },
+  {
+    "date": "2016-03-23T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "savings",
+    "amount": 111.11
+  },
+  {
+    "date": "2016-03-24T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "savings",
+    "amount": 500
+  },
+  {
+    "date": "2016-04-15T10:34:31Z",
+    "type": "withdrawal",
+    "category": "withdrawal",
+    "description": "Withdrawal",
+    "fromAccountType": "savings",
+    "amount": -60
+  },
+  {
+    "date": "2016-04-16T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "savings",
+    "amount": 50
+  },
+  {
+    "date": "2016-04-25T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "savings",
+    "amount": 20
+  },
+  {
+    "date": "2016-04-26T10:34:31Z",
+    "type": "withdrawal",
+    "category": "withdrawal",
+    "description": "Withdrawal",
+    "fromAccountType": "savings",
+    "amount": -40
+  }
+]

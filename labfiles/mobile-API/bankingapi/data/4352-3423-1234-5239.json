@@ -1,0 +1,82 @@
+[
+  {
+    "date": "2017-01-20T10:34:31Z",
+    "type": "payment",
+    "category": "billing cycle",
+    "description": "Payment for 01/15 billing cycle",
+    "fromAccountType": "credit card",
+    "amount": 230.45
+  },
+  {
+    "date": "2017-03-04T10:34:31Z",
+    "type": "debit",
+    "category": "여행",
+    "description": "Merchant 1",
+    "fromAccountType": "credit card",
+    "amount": -103.28
+  },
+  {
+    "date": "2017-02-28T10:34:31Z",
+    "type": "debit",
+    "category": "가스",
+    "description": "Merchant 2",
+    "fromAccountType": "credit card",
+    "amount": -8.25
+  },
+  {
+    "date": "2017-03-02T11:34:31Z",
+    "type": "debit",
+    "category": "음식점",
+    "description": "Merchant 3",
+    "fromAccountType": "credit card",
+    "amount": -60
+  },
+  {
+    "date": "2017-03-03T10:34:31Z",
+    "type": "credit",
+    "category": "음식점",
+    "description": "Merchant 3, refund",
+    "fromAccountType": "credit card",
+    "amount": 20
+  },
+  {
+    "date": "2017-03-02T10:34:31Z",
+    "type": "debit",
+    "category": "리테일",
+    "description": "Merchant 4, retail",
+    "fromAccountType": "credit card",
+    "amount": -234
+  },
+  {
+    "date": "2016-10-07T12:34:31Z",
+    "type": "debit",
+    "category": "가스",
+    "description": "Merchant 2",
+    "fromAccountType": "credit card",
+    "amount": -45
+  },
+  {
+    "date": "2017-02-07T14:34:31Z",
+    "type": "debit",
+    "category": "택시",
+    "description": "Payment uber",
+    "fromAccountType": "credit card",
+    "amount": -8.8
+  },
+  {
+    "date": "2016-10-07T12:34:31Z",
+    "type": "debit",
+    "category": "카페",
+    "description": "Merchant 12",
+    "fromAccountType": "credit card",
+    "amount": -12.4
+  },
+  {
+    "date": "2017-02-07T14:34:31Z",
+    "type": "debit",
+    "category": "식료품",
+    "description": "Grocery shopping",
+    "fromAccountType": "credit card",
+    "amount": -62.82
+  }  
+]

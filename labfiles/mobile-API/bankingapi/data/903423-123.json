@@ -1,0 +1,146 @@
+[
+  {
+    "date": "2017-01-20T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "checking",
+    "amount": 230.45
+  },
+  {
+    "date": "2017-01-22T10:34:31Z",
+    "type": "withdrawal",
+    "category": "withdrawal",
+    "description": "Withdrawal",
+    "fromAccountType": "checking",
+    "amount": -100
+  },
+  {
+    "date": "2017-02-05T10:34:31Z",
+    "type": "check",
+    "category": "check",
+    "description": "Check",
+    "fromAccountType": "checking",
+    "amount": -30.45
+  },
+  {
+    "date": "2016-03-20T10:34:31Z",
+    "type": "withdrawal",
+    "category": "withdrawal",
+    "description": "Withdrawal",
+    "fromAccountType": "checking",
+    "amount": -10
+  },
+  {
+    "date": "2016-03-22T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "checking",
+    "amount": 952
+  },
+  {
+    "date": "2016-03-22T10:38:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "checking",
+    "amount": 962
+  },
+  {
+    "date": "2016-03-23T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "checking",
+    "amount": 111.11
+  },
+  {
+    "date": "2016-03-24T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "checking",
+    "amount": 500
+  },
+  {
+    "date": "2016-04-02T10:34:31Z",
+    "type": "check",
+    "category": "check",
+    "description": "Check",
+    "fromAccountType": "checking",
+    "amount": -250.55
+  },
+  {
+    "date": "2016-04-15T10:34:31Z",
+    "type": "withdrawal",
+    "category": "withdrawal",
+    "description": "Withdrawal",
+    "fromAccountType": "checking",
+    "amount": -60
+  },
+  {
+    "date": "2016-04-16T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "checking",
+    "amount": 50
+  },
+  {
+    "date": "2016-04-25T10:34:31Z",
+    "type": "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "checking",
+    "amount": 20
+  },
+  {
+    "date": "2016-04-26T10:34:31Z",
+    "type": "withdrawal",
+    "category": "withdrawal",
+    "description": "Withdrawal",
+    "fromAccountType": "checking",
+    "amount": -40
+  },
+  {
+    "date": "2016-04-27T10:34:31Z",
+    "type" : "deposit",
+    "category": "deposit",
+    "description": "Deposit",
+    "fromAccountType": "checking",
+    "amount": 355.55
+  },
+  {
+    "date": "2016-12-03T10:35:20Z",
+    "type" : "check",
+    "category": "check",
+    "description": "Check",
+    "fromAccountType": "checking",
+    "amount": -22.00
+  },
+  {
+    "date": "2016-12-04T15:13:41Z",
+    "type" : "check",
+    "category": "check",
+    "description": "Check",
+    "fromAccountType": "checking",
+    "amount": -33.00
+  },
+  {
+    "date": "2016-12-05T20:20:55Z",
+    "type" : "check",
+    "category": "check",
+    "description": "Check",
+    "fromAccountType": "checking",
+    "amount": -200.00
+  },
+  {
+    "date": "2016-12-11T16:20:30Z",
+    "type" : "check",
+    "category": "check",
+    "description": "Check",
+    "fromAccountType": "checking",
+    "amount": -100.55
+  }
+]

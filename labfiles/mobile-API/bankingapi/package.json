@@ -1,0 +1,14 @@
+{
+  "name" : "bankingapi",
+  "version" : "1.0.0",
+  "description" : "Banking custom resources consumed by the Bot and by MAX app",
+  "main" : "bankingapi.js",
+  "oracleMobile" : {
+    "dependencies" : {
+      "apis" : { },
+      "connectors" : {   
+        "/mobile/connector/hotelServiceConnector": "1.0"                   
+      }
+    }
+  }
+}
