@@ -1,0 +1,18 @@
+{
+  "name" : "bots",
+  "version" : "1.0.0",
+  "description" : "bot custom code",
+  "main" : "bots.js",
+  "repository": {},
+  "license": "ISC",
+  "dependencies": {
+    "date-util": "^1.2.1",
+    "joi": "^9.2.0"
+  },
+  "oracleMobile" : {
+    "dependencies" : {
+      "apis" : { },
+      "connectors" : { }
+    }
+  }
+}
