@@ -20,29 +20,35 @@ module.exports = {
 
     invoke: (conversation, done) => {
 
+        conversation.reply({ text: 'call hotel list start'});
         var mobileSdk = conversation.mobileSdk;
         var cards = [];
+
+
         mobileSdk.connectors.get("hotelServiceConnector", "sample").then(
             function (result) {
+                logger.info("sdafsafsdf>>>>>>>");
                 var outputMsg = JSON.parse(result.result);
+
                 for(var i = 0; i < outputMsg.length; i++) {
                     var obj = outputMsg[i];
 
-                    var action = MessageModel.urlActionObject('Open', obj.image, null);                    
-                    var card = MessageModel.cardObject(obj.title, obj.description, obj.image, null, [action] );
+                    var action = MessageModel.postbackActionObject('Book Now', obj.image, "Book Now") ;                    
+                    var card = MessageModel.cardObject(obj.title, obj.description, obj.image, null, [action]);
                     cards.push(card);
                 }
 
-                var message =  MessageModel.cardConversationMessage("horizontal", cards);
-                conversation.reply(JSON.stringify(message));
+                var message =  MessageModel.cardConversationMessage("vertical", cards);
                 conversation.reply(message);
-
                 conversation.transition();
                 done();  
+
 
             },function (error) {
 
                 conversation.reply({ text: "REST API가 현재 응답하지 않아요."});
+
+                conversation.reply({ text: error});
                 conversation.transition();
                 done();
             }

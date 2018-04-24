@@ -1,22 +1,17 @@
 "use strict";
 
-// External deps
-const log4js = require('log4js');
-const SDK = require('./sdk');
-
-// Module-scoped resources
-const registry = require('./registry'); // specifies component names/impls
-
 module.exports = function(config)
-
 {
+  //use a shared logger if available at config.logger; If not, use console to log
   var logger = (config ? config.logger : null);
   if (!logger) {
-    const log4js = require('log4js');
-    logger = log4js.getLogger();
-    logger.setLevel('INFO');
-//    log4js.replaceConsole(logger); //should not replace console for MCe as MCS relies on console.log for diagnostics
+    //logger = new console.Console(process.stdout, process.stderr);
+    logger = console;
+    logger.info("shell.js create console logger");
   }
+  // pass the logger to sdk so the same logger is used
+  const SDK = require('./sdk')(logger);
+  const registry = require('./registry'); // specifies component names/impls
 
   return {
 
@@ -76,19 +71,19 @@ module.exports = function(config)
       try {
         sdk = Object.assign(new SDK(requestBody), sdkMixin);
       } catch (err) {
-        logger.info('Error in request, details=' + JSON.stringify(err.details, null, 2));
+        logger.error('Error in request, details=' + JSON.stringify(err.details, null, 2));
         callback(err);
         return;
       }
 
       // Invoke component
       logger.info('Invoking component=' + componentName);
-      logger.debug('with reqBody=' + JSON.stringify(requestBody, null, 2));
+      logger.info('with reqBody=' + JSON.stringify(requestBody, null, 2));
       try {
         // for now we check if the error is the sdk (old way of using done(sdk)) to be backward compat
         component.invoke(sdk, (componentErr) => {
           if (!componentErr || componentErr === sdk) {
-            logger.debug('Component response=' + JSON.stringify(sdk.response(), null, 2));
+            logger.info('Component response=' + JSON.stringify(sdk.response(), null, 2));
             callback(null, sdk.response());
           } else {
             callback(componentErr, null);

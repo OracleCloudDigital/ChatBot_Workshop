@@ -1,15 +1,23 @@
-"use strict"
+"use strict";
 
-const log4js = require('log4js');
-const logger = log4js.getLogger();
+module.exports = function(sharedLogger){
+
+var logger;
+if (sharedLogger) {
+  logger = sharedLogger;
+} else {
+  logger = console;
+  logger.info("sdk.js create console logger");
+}
+
 const Joi = require('joi');
-const sdkVersion = '1.0';
+const sdkVersion = '1.1';
+const MessageModel = require("./MessageModel")(Joi);
 
 // Response template
 const RESPONSE = {
     platformVersion: undefined,
     context: undefined,
-    // responses: undefined,
     action: undefined,
     keepTurn: true,
     transition: false,
@@ -46,6 +54,8 @@ const NLPResult = class {
     /**
      * Returns matches for the specified entity; may be an empty collection.
      * If no entity is specified, returns the map of all entities.
+     * @param {string} [entity] - name of the entity
+     * @return {object} The entity match result.
      */
     entityMatches(entity) {
        if (!this._nlpresult) {
@@ -137,19 +147,105 @@ const ComponentInvocation = class {
     }
 
     /**
-     * Retrieves the payload of the current input message.
-     * @return {object} The message payload.
+     * Retrieves the logger so the component can use the shared logger for logging.  The shared logger should support the methods log, info, warn, error and trace.
+     * @return {object} The logger.
      */
-    payload() {
+    logger() {
+        return logger;
+    }
+
+    /**
+     * Retrieves the raw payload of the current input message.
+     * @return {object} The raw payload.
+     */
+    rawPayload() {
         return this.request().message.payload;
     }
 
     /**
+     * Retrieves the payload of the current input message in the common message format.
+     * @return {object} The common message payload.
+     */
+    messagePayload() {
+        return this.request().message.messagePayload;
+    }
+
+    /**
+     * Retrieves the payload of the current input message. For backward compatibility purposes.  However, the payload returned may be in the new message format.
+     * @return {object} The message payload.
+     * @deprecated to be removed in favor of rawPayload() and messagePayload()
+     */
+    payload() {
+        return this.rawPayload();
+    }
+
+    /**
      * Retrieves the channel type of the current input message.
-     * @return {string} The channel type - facebook, webhook, test.
+     * @return {string} The channel type - facebook, webhook, test, etc.
      */
      channelType() {
          return this.request().message.channelConversation.type;
+     }
+
+     /**
+      * Retrieves the userId for the current input message.
+      * @return {string} The userId.
+      */
+     userId() {
+         return this.request().message.channelConversation.userId;
+     }
+
+     /**
+      * Retrieves the sessionId for the current input message.
+      * @return {string} The sessionId.
+      */
+     sessionId() {
+        return this.request().message.channelConversation.sessionId;
+     }
+
+     // retrieve v1.0 facebook postback
+     _postback10() {
+        const rawPayload = this.rawPayload();
+        if (rawPayload && this.channelType() === 'facebook') {
+            if (rawPayload.hasOwnProperty('postback') && rawPayload.postback.hasOwnProperty('payload')) {
+                return rawPayload.postback.payload;
+            }
+        }
+        return null;
+     }
+
+     /**
+      * Retrieves the postback of the current input message.
+      * If the input message is not a postback, this will return null.
+      * @return {object} The postback payload.
+      */
+     postback() {
+         let postback = null;
+
+         const messagePayload = this.messagePayload();
+         if (messagePayload && messagePayload.postback) {
+             postback = messagePayload.postback;
+         }
+         if (!postback) {
+            postback = this._postback10();
+         }
+         logger.info('SDK: Retrieving request postback=' + postback);
+         return postback;
+     }
+
+     // return v1.0 facebook text and quick_reply text
+     _text10() {
+       const rawPayload = this.rawPayload();
+       if (rawPayload && this.channelType() === 'facebook') {
+             if (rawPayload.hasOwnProperty('message')) {
+                 if (rawPayload.message.hasOwnProperty('quick_reply') && rawPayload.message.quick_reply.hasOwnProperty('payload')) {
+                     return rawPayload.message.quick_reply.payload;
+                 } else if (rawPayload.message.hasOwnProperty('text')) {
+                     return rawPayload.message.text;
+                 }
+             }
+       }
+       return null;
      }
 
     /**
@@ -161,25 +257,54 @@ const ComponentInvocation = class {
     text() {
         let text = null;
 
-        const body = this.request();
-        const channelType = this.channelType();
-        const messagePayload = this.payload();
-        if (channelType === 'facebook') {
-            if (messagePayload.hasOwnProperty('message')) {
-                if (messagePayload.message.hasOwnProperty('quick_reply') && messagePayload.message.quick_reply.hasOwnProperty('payload')) {
-                    text = messagePayload.message.quick_reply.payload;
-                } else if (messagePayload.message.hasOwnProperty('text')) {
-                    text = messagePayload.message.text;
-                }
-            } else if (messagePayload.hasOwnProperty('postback') && messagePayload.postback.hasOwnProperty('payload')) {
-                text = messagePayload.postback.payload;
-            }
-        } else if (messagePayload.hasOwnProperty('text')) {
+        const messagePayload = this.messagePayload();
+        if (messagePayload) {
+          if (messagePayload.text) {
             text = messagePayload.text;
+          } else {
+            var postback = this.postback();
+            if (postback && typeof postback === 'string') {
+              text = postback;
+            }
+          }
         }
-
-        logger.debug('SDK: Retrieving request text=' + text);
+        if (!text) {
+          text = this._text10();
+        }
+        logger.info('SDK: Retrieving request text=' + text);
         return text;
+    }
+
+    /**
+     * Retrieves the attachment of the current input message.
+     * If the input message is not an attachment, this will return null.
+     * @return {object} The attachment.
+     */
+    attachment() {
+        let attachment = null;
+
+        const messagePayload = this.messagePayload();
+        if (messagePayload && messagePayload.attachment) {
+            attachment = messagePayload.attachment;
+        }
+        logger.info('SDK: Retrieving request attachment=' + attachment);
+        return attachment;
+    }
+
+    /**
+     * Retrieves the location of the current input message.
+     * If the input message does not contain a location, this will return null.
+     * @return {object} The attachment.
+     */
+    location() {
+        let location = null;
+
+        const messagePayload = this.messagePayload();
+        if (messagePayload && messagePayload.location) {
+            location = messagePayload.location;
+        }
+        logger.info('SDK: Retrieving request location=' + location);
+        return location;
     }
 
     /**
@@ -212,7 +337,7 @@ const ComponentInvocation = class {
      * writes the value "value" to the variable called "name".
      *
      * @param {string}  name - The name of variable to be set or read
-     * @param {string} value - value to be set for variable (optional)
+     * @param {string} [value] - value to be set for variable (optional)
      */
     variable(name, value) {
 
@@ -226,7 +351,7 @@ const ComponentInvocation = class {
             scopeName = name.substring(0, index);
 
             var possibleScope = context;
-            while (possibleScope != null)
+            while (possibleScope !== null)
             {
                 if (possibleScope.scope === scopeName)
                 {
@@ -247,7 +372,7 @@ const ComponentInvocation = class {
             return context.variables[nameToUse].value;
         }
         else {
-            logger.debug('SDK: About to set variable ' + name);
+            logger.info('SDK: About to set variable ' + name);
 
             if (!context.variables)
             {
@@ -255,16 +380,20 @@ const ComponentInvocation = class {
             }
             if (!context.variables[nameToUse])
             {
-                logger.debug('SDK: Creating new variable ' + nameToUse);
+                logger.info('SDK: Creating new variable ' + nameToUse);
                 context.variables[nameToUse] = Object.assign({}, VARIABLE);
             }
 
             context.variables[nameToUse].value = value;
             this._response.modifyContext = true;
 
-            logger.debug('SDK: Setting variable ' + JSON.stringify(context.variables[nameToUse]));
+            logger.info('SDK: Setting variable ' + JSON.stringify(context.variables[nameToUse]));
             return this;
         }
+    }
+
+    MessageModel() {
+        return MessageModel;
     }
 
     /**
@@ -275,14 +404,14 @@ const ComponentInvocation = class {
      * nlpresult variables defined in the flow), or omit the name if you
      * only have 1 nlpresult.
      *
-     * @param {string} nlpVariableName - variable to be given the nlpResult
+     * @param {string} [nlpVariableName] - variable to be given the nlpResult
      * @return {NLPResult} The nlp resolution result.
      */
     nlpResult(nlpVariableName) {
         if (nlpVariableName === undefined) {
             for (let name in this._response.context.variables) {
                 if (this._response.context.variables[name].type === NLPRESULT_TYPE) {
-                    logger.debug('SDK: using implicitly found nlpresult=' + name);
+                    logger.info('SDK: using implicitly found nlpresult=' + name);
                     nlpVariableName = name;
                     break;
                 }
@@ -309,6 +438,7 @@ const ComponentInvocation = class {
      * Sets the action to return from this component, which will determine the
      * next state in the dialog.
      *
+     * @param {string} a - action name
      * @deprecated to be removed in favor of transition(action)
      */
     action(a) {
@@ -340,12 +470,22 @@ const ComponentInvocation = class {
      * or if the Bot/component should wait for user input (keepTurn = false).
      *
      * The SDK's "reply" function automatically sets "keepTurn" to false.
-     * @param {boolean} k - whether to keep the turn for sending more replies
+     * @param {boolean} [k] - whether to keep the turn for sending more replies
      */
     keepTurn(k) {
         this._response.keepTurn = (typeof k === "undefined" ? true : !!k);
         return this;
     }
+
+    /**
+     * "releaseTurn" is the shorthand for keepTurn(false)
+     * @param {boolean} [k] - whether to keep the turn for sending more replies
+     */
+    releaseTurn(k) {
+        this._response.keepTurn = (typeof k === "undefined" ? false : !k);
+        return this;
+    }
+
     /**
      * Set "done" to true when your component has completed its logic and
      * the dialog should transition to the next state.
@@ -382,7 +522,7 @@ const ComponentInvocation = class {
      * however the component is responsible for keeping track of its own state
      * in such situations.
      *
-     * @param {string} t - outcome of component, optional.
+     * @param {string} [t] - outcome of component
      * transition() will cause the dialog to transition to the next state.
      * transition(outcome) will set te outcome of the component that would be used to
      * determine the next state to transition to.
@@ -409,23 +549,54 @@ const ComponentInvocation = class {
      * Adds a reply to be sent back to the user.  May be called multiple times
      * to send multiple replies in a given response.  Automatically sets the
      * "keepTurn" as false.
-     * @param {object|string} payload - payload to be sent back.  payload could also be a string for text response
+     *
+     * reply can take a string payload, an object payload or a MessageModel payload.  A string or object payload will be parsed
+     * into a MessageModel payload.  If the MessageModel payload has a valid common message format, then reply will use it as
+     * messagePayload, else it will use the payload to create a rawConversationMessage (see MessageModel) as messagePayload.
+     * @param {object|string|MessageModel} payload - payload to be sent back.  payload could also be a string for text response
+     * @param {object} [channelConversation] - to override the default channelConversation from request
      */
-    reply(payload) {
+    reply(payload, channelConversation) {
         var response = {
-          payload: (typeof payload === 'string') ? { text: payload } : payload,
           tenantId: this._request.message.tenantId,
-          channelConversation: Object.assign({}, this._request.message.channelConversation)
+          channelConversation: channelConversation || Object.assign({}, this._request.message.channelConversation)
         };
 
-        this._response.responses = this._response.responses || [];
-        this._response.responses.push(response);
+        var messageModel;
+        if (payload instanceof MessageModel) {
+          logger.info('messageModel payload provided', payload);
+          messageModel = payload;
+        } else {
+          logger.info('creating messageModel with payload:', payload);
+          messageModel = new MessageModel(payload);
+        }
+        if (messageModel.isValid()) {
+            logger.info('valid messageModel');
+            response.messagePayload = messageModel.messagePayload();
+        } else {
+            logger.info('message model validation error:',messageModel.validationError());
+            logger.info('using rawPayload');
+            var rawMessagePayload = MessageModel.rawConversationMessage(payload);
+            messageModel = new MessageModel(rawMessagePayload);
+            if (messageModel.isValid()) {
+                logger.info('valid messageModel for rawMessagePayload');
+                response.messagePayload = messageModel.messagePayload();
+            } else {
+                logger.info('message model validation error:',messageModel.validationError());
+                logger.info('using payload instead of messagePayload');
+                response.payload = messageModel.rawPayload();
+            }
+        }
+
+        this._response.messages = this._response.messages || [];
+        this._response.messages.push(response);
 
         // "keepTurn" false which signals to the engine to send replies and wait for user input
         this.keepTurn(false);
 
         return this;
     }
+
 
     // The HTTP response body
     response() {
@@ -466,7 +637,7 @@ function createErrorDetails(title, detail, errorCode, errorDetails) {
     details['o:errorCode'] = errorCode;
     details['o:errorDetails'] = errorDetails;
     return details;
-};
+}
 
 function validateRequestBody(reqBody) {
     // Joi does not seem to support recursive schemas.
@@ -491,7 +662,9 @@ function validateRequestBody(reqBody) {
       });
 
     const messageSchema = Joi.object().keys({
-        payload: Joi.any().required(),
+        type: Joi.string().optional(),
+        payload: Joi.any().optional(),
+        messagePayload: Joi.any().optional(),
         stateCount: Joi.number().optional(),
         retryCount: Joi.number().required(),
         channelConversation: Joi.object().keys({
@@ -524,4 +697,5 @@ function validateRequestBody(reqBody) {
     return requestSchema.validate(reqBody, {allowUnknown: true});
 }
 
-module.exports = ComponentInvocation;
+  return ComponentInvocation;
+};
