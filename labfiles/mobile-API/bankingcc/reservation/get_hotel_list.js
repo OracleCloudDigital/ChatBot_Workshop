@@ -36,7 +36,7 @@ module.exports = {
                     cards.push(card);
                 }
 
-                var message =  MessageModel.cardConversationMessage("vertical", cards);
+                var message =  MessageModel.cardConversationMessage("horizontal", cards);
                 conversation.reply(message);
                 conversation.transition();
                 done();  
