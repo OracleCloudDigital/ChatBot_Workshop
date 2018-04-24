@@ -1,18 +1,18 @@
 
 {
-    "apiName":"BankingCC",
-    "apiVersion":"1.0",
-    "apiId":"3291ec91-77e8-46f6-b27c-c17f4a9bb170",
-    "baseUrl":"https://16549B19877743C598F5AB62809C7D72.uscom-central-1.oraclecloud.com:443",
-    "tokenEndpoint":"https://idcs-f39015c6dacf4d658daeac06bb39e471.identity.oraclecloud.com/oauth2/v1/token",
+    "apiName":"bots",
+    "apiVersion":"18.1.5",
+    "apiId":"<YOUR_APP_ID>",
+    "baseUrl":"<YOUR_BASE_URL>",
+    "tokenEndpoint":"<YOUR_TOKEN_ENDPOINT>",
     "backend":{
-        "backendId":"5247baa8-e677-411a-8e45-b45e83303dfa",
-        "backendName":"chatbot",
-        "backendVersion":"1.0",
+        "backendId":"<YOUR_BACKEND_ID>",
+        "backendName":"<YOUR_BACKEND_NAME>",
+        "backendVersion":"<YOUR_BACKEND_VERSION>",
         "authorization":{
-            "anonymousKey":"MTY1NDlCMTk4Nzc3NDNDNTk4RjVBQjYyODA5QzdENzJfTW9iaWxlQW5vbnltb3VzX0FQUElEOmUxMmUzNDVlLTJjMmUtNGI5Ni1hNzM2LThjODNkZjkxNGIxZA==",
-            "clientId":"6bb8a968f8154d929dcfacffdf378b6f",
-            "clientSecret":"b5e39ef7-d932-4c46-b568-0fc6c065450c"
+            "anonymousKey":"<BACKEND_ANONYMOUS_KEY>",
+            "clientId":"<BACKEND_CLIENT_ID>",
+            "clientSecret":"<BACKEND_CLIENT_SECRET>"
         }
     },
     "tools":{
@@ -20,8 +20,8 @@
             "tempDirectory":"c:\\tmp\\mcs-deploy"
         },
         "authorization":{
-            "clientId":"6bb8a968f8154d929dcfacffdf378b6f",
-            "clientSecret":"b5e39ef7-d932-4c46-b568-0fc6c065450c"
+            "clientId":"<OMCE_TM_APP_CLIENT_ID>",
+            "clientSecret":"<OMCE_TM_APP_CLIENT_SECRET>"
         }
     },
     "container":{
