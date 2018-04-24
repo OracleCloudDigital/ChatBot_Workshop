@@ -23,7 +23,6 @@ module.exports = {
         var mobileSdk = conversation.mobileSdk;
         var cards = [];
 
-
         mobileSdk.connectors.get("hotelServiceConnector", "sample").then(
             function (result) {
 
@@ -46,7 +45,6 @@ module.exports = {
             },function (error) {
 
                 conversation.reply({ text: "REST API가 현재 응답하지 않아요."});
-
                 conversation.reply({ text: error});
                 conversation.transition();
                 done();

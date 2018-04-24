@@ -16,6 +16,10 @@
             {
                "name": "professorName",
                "value": "{singleLineInput_1}"
+            },
+            {
+               "name": "url",
+               "value": "{signature_1.url}"
             }
          ],
          "trigger": "change",
@@ -26,9 +30,9 @@
    ],
    "chatbox": {
       "active": true,
-      "build": 7,
+      "build": 8,
       "builder": {
-         "editCount": 46
+         "editCount": 54
       },
       "code": "make_doctor_app",
       "id": 546,
