@@ -39,7 +39,6 @@ module.exports = {
           paymentBody.amount = Number(amount) * -1;
         }
         var temp =    conversation;
-        conversation.reply({ text: JSON.stringify(temp)});
 
         var getAccounts = AccountService.accounts(mobileSdk, fromAccountType);
 
@@ -50,7 +49,6 @@ module.exports = {
           if (accounts.length > 0) {
               var account = accounts[0];
              logger.debug('Body Payment : ' + JSON.stringify(paymentBody));
-              conversation.reply({ text: "mobileSdk : " + JSON.stringify(mobileSdk)});
 
              mobileSdk.custom.BankingApi.post('accounts/' + account.id + '/transactions', paymentBody, {inType: 'json'}, null).then(
                 function (result) {
