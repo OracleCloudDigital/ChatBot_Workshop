@@ -7,8 +7,8 @@ Lab500 - Instant App 기능을 이용한 확장
 
 -   아래의 버튼이 있는 최신 Bot 버전 ![Screen Shot 2018-01-15 at 3.59.56
     P](media/15159994715260/Screen%20Shot%202018-01-15%20at%203.59.56%20PM.png)
-- labfiles/instantApp.yaml
-- labfiles/instantApp.zip
+    
+- labfiles/instantApp/ 
 
 완성시 아래와 같은 화면을 보실 수 있습니다. 
 
