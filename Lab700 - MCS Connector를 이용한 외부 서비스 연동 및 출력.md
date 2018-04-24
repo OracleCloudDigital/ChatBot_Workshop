@@ -7,7 +7,6 @@ Lab700 - MCS Connector를 이용한 외부 서비스 연동 및 출력
 이 랩을 시작하기전에 필요한 항목을 확인하세요.
 - mobile-API/bankingcc
  
-
 **Step 1. MCS에서 Connector 만들기**
 =======
 ### 1. MCS 화면 > Connector로 접속해서 새로운 REST Connector를 만들어 주세요.
