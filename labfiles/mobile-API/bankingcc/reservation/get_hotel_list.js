@@ -20,14 +20,13 @@ module.exports = {
 
     invoke: (conversation, done) => {
 
-        conversation.reply({ text: 'call hotel list start'});
         var mobileSdk = conversation.mobileSdk;
         var cards = [];
 
 
         mobileSdk.connectors.get("hotelServiceConnector", "sample").then(
             function (result) {
-                logger.info("sdafsafsdf>>>>>>>");
+
                 var outputMsg = JSON.parse(result.result);
 
                 for(var i = 0; i < outputMsg.length; i++) {
