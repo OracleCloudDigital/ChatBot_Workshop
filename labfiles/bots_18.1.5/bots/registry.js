@@ -6,5 +6,6 @@ module.exports = {
     'intentevent': require('./components/intentevent'),
     'kakaomessage': require('./components/kakao'),   
     'validation': require('./components/validation'),  
+    'postevent': require('./components/postevent'),  
   }
 };

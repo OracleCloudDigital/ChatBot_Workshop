@@ -26,6 +26,8 @@ module.exports = function(service) {
 	service.post('/mobile/custom/bots/components/:componentName', function(req,res) {
     const sdkMixin = { oracleMobile: req.oracleMobile };
     console.log("component name = " + req.params.componentName);
+  //  console.log("request header ",req.headers);
+  //  console.log("request body ",req.body);
     shell.invokeComponentByName(req.params.componentName, req.body, sdkMixin, function(err, data) {
         if (!err) {
             res.status(200).json(data);

@@ -1,0 +1,36 @@
+{
+    "id": "default",
+        "settings": {
+            "configProperties": {
+                "smooch.urls.webhook": "https://kth02BOTSCON-kshopping2017.uscom-central-1.oraclecloud.com:443/connectors/v1/tenants/{tenantId}/listeners/smooch/bots/{botId}",
+                "chatbox.urls.callback": "https://kth02BOTSCON-kshopping2017.uscom-central-1.oraclecloud.com:443/connectors/v1/callback?state={stateValue}"
+            },
+            "chatbox": {
+                "baseUrl": "https://nimbus.chatbox.com/omcs/1.0",
+                "externalOrgId": "idcs-5806f7f32b474f5795698658a85095c7",
+                "name": "idcs-5806f7f32b474f5795698658a85095c7",
+                "orgId": 152
+            }
+        }  
+}
+
+{
+    "id": "default",
+    "settings": {
+        "translators": {
+            "google": {
+                "baseUrl": "https://translation.googleapis.com/language/translate/v2",
+                "type": "google"
+            }
+        },
+        "configProperties": {
+            "chatbox.urls.callback": "http://129.150.115.56:8800/connectors/v1/callback?state={stateValue}"
+        },
+        "chatbox": {
+            "baseUrl": "https://nimbus.chatbox.com/omcs/1.0",
+            "externalOrgId": "chatbot-tenant",
+            "name": "chatbot-tenant",
+            "orgId": 49
+        }
+    }
+}

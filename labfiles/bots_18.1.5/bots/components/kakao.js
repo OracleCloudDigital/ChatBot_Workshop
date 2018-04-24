@@ -28,7 +28,7 @@ module.exports = {
         let buttons = ["버튼1", "버튼2","버튼3"];
 
         if (msgtype == "1") {
-           conversation.reply(MessageModel.kakaoConversationMessage("단순 텍스트 메시지 입니다\n 멀티 라인 지원합니다.\n★ ● ◐ ◑ ☎ ♠ ♥ 【 】 ■ ▣ ▲ ▶ ▼ ◆ ◈ ♣ ♩ ♪ ☞ ♬ 》 – • ※ ⊙ \n이런것 들은 지원하네요"));
+           conversation.reply(MessageModel.kakaoConversationMessage("단순 텍스트 메시지 입니다.\n 멀티 라인 지원합니다.\n★ ● ◐ ◑ ☎ ♠ ♥ 【 】 ■ ▣ ▲ ▶ ▼ ◆ ◈ ♣ ♩ ♪ ☞ ♬ 》 – • ※ ⊙ \n이런것 들은 지원하네요"));
         }
         else if (msgtype == "2") {
            conversation.reply(MessageModel.kakaoConversationMessage(null, photo));

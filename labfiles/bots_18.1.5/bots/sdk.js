@@ -212,6 +212,13 @@ const ComponentInvocation = class {
          return this.request().message.channelConversation.type;
      }
 
+    /**
+      * MN added
+      */
+    tenantId() {
+        return  this.request().message.channelConversation.tenantId;
+    }
+
      /**
       * Retrieves the userId for the current input message.
       * @return {string} The userId.
