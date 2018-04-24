@@ -1,4 +1,4 @@
-Lab300 - PART 1. MCS에서 Custom Component 구성하기
+# Lab300 - PART 1. MCS에서 Custom Component 구성하기
 =======
 
 이 랩에서는 MCS를 이용해서 Custom Component를 수정하고 간편하게 deploy까지 해 볼 것입니다.
@@ -9,23 +9,23 @@ Lab300 - PART 1. MCS에서 Custom Component 구성하기
 
 **Step 1: 만들어져 있는 API TEST하기**
 =======
-### 1. 접속
-OMCe에 접속해, 원하시는 API로 접속한 후 상단의 TEST를 눌러 주세요. 
+### 1. 접속 
+원하시는 봇에 접속해서 합니다. MasterBot_APIDeploy가 없을경우, MasterBot을 그대로 사용 하시거나, MasterBot을 아래처럼 clone하셔도 됩니다.
 
-![Screen Shot 2018-04-19 at 1.48.31 P](media/15159994715262/Screen%20Shot%202018-04-19%20at%201.48.31%20PM.png)
+![Screen Shot 2018-04-24 at 1.46.55 P](media/15245452829241/Screen%20Shot%202018-04-24%20at%201.46.55%20PM.png)
 
-### 2. TEST
-Response 확인합니다. 
 
-![Screen Shot 2018-04-19 at 1.50.24 P](media/15159994715262/Screen%20Shot%202018-04-19%20at%201.50.24%20PM.png)
-![Screen Shot 2018-04-19 at 1.50.33 P](media/15159994715262/Screen%20Shot%202018-04-19%20at%201.50.33%20PM.png)
+### 2. TEST 
+원하시는 봇에 접속해서 연결 되어있는 서비스 메세지를 확인해 봅니다. 버그를 확인했습니다.
+
+![Screen Shot 2018-04-24 at 1.50.21 P](media/15245452829241/Screen%20Shot%202018-04-24%20at%201.50.21%20PM.png)
 
 
 **Step 2: OMCe Tool을 이용해 Local의 변경사항 바로 deploy 및 Test 하기**
 =======
 
 
-### 1.  mobile-API/oraclemobileapi 폴더로 이동해서 사용하실 MCS Backend와 configuration 정보가 모두 일치하는지 확인합니다. toolsConfig.js 파일과 사용하시려는 MCS MBE setting과 대조하시면 됩니다. 
+### 1.  mobile-API/bankingcc 폴더로 이동해서 사용하실 MCS Backend와 configuration 정보가 모두 일치하는지 확인합니다. toolsConfig.js 파일과 사용하시려는 MCS MBE setting과 대조하시면 됩니다. 
 
 ![Screen Shot 2018-04-19 at 12.46.23 P](media/15159994715262/Screen%20Shot%202018-04-19%20at%2012.46.23%20PM.png)
 
@@ -46,15 +46,17 @@ Response 확인합니다.
         }
     }
 
-### 2.  omce-tools/omce-tools 폴더로 이동해서, 아래 커맨드를 쳐주세요. 
+### 2.  mobile-API/bankingcc 폴더에서 node_modules 폴더가 보이지 않는다면 이동해서, 아래 커맨드를 쳐주세요. 
 
 		npm install 
 	
-### 3.  omce-tools/omce-tools 에 필요한 package가 모두 설치 되었으므로, api implementation을 수정합니다. 
+### 3.  mobile-API/bankingcc에 필요한 package가 모두 설치 되었으므로, api implementation을 수정합니다. banking/balance_retrieval.js을 열어 아래처럼 수정 해 줍니다.
 
-mobile-API/oraclemobileapi/oraclemobileapi.js을 열어서 response를 수정해 줍니다.  
-
-![Screen Shot 2018-04-19 at 1.37.17 P](media/15159994715262/Screen%20Shot%202018-04-19%20at%201.37.17%20PM.png)
+            if (accountType === 'credit card') {
+                conversation.reply({ text: '신용카드의 한도 잔여액은 $' + String(account.remainingLimit()) + '입니다.'});
+            }else{
+              conversation.reply({ text:  accountType + '의 (' + account.id + ') 잔액은 $' + String(account.balance()) + '입니다' });
+            }
 
  
 
@@ -69,7 +71,7 @@ Warning: Configuration property "proxy" is undefined
 
 To display help and examples associated with warnings, use the --verbose option
 Requesting OAuth token...
-Packaging implementation for OracleMobileAPI v1.0 from /Users/sunghyejeon/Documents/ChatBot_Handson/labfiles/mobile-API/oraclemobileapi/
+Packaging implementation for BankingCC v1.0 from /Users/sunghyejeon/Documents/ChatBot_Handson/labfiles/mobile-API/bankingcc/
 Deploying implementation to OMCe
 Deployment completed successfully
 
@@ -78,8 +80,6 @@ Deployment completed successfully
 
 response가 바뀐 것을 확인 하실 수 있습니다.
 
-![Screen Shot 2018-04-19 at 1.53.45 P](media/15159994715262/Screen%20Shot%202018-04-19%20at%201.53.45%20PM.png)
-![Screen Shot 2018-04-19 at 1.53.55 P](media/15159994715262/Screen%20Shot%202018-04-19%20at%201.53.55%20PM.png)
-
+![Screen Shot 2018-04-24 at 1.56.36 P](media/15245452829241/Screen%20Shot%202018-04-24%20at%201.56.36%20PM.png)
 
 
